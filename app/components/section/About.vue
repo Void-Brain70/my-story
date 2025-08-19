@@ -14,7 +14,6 @@
       </div>
     </div>
 
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
 
       <!-- Left: Profile Image -->
