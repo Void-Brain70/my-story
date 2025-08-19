@@ -1,84 +1,121 @@
 <template>
-  <section class="relative bg-gray-900 text-white overflow-hidden">
-    <!-- Background gradient & floating dots -->
-    <div class="absolute inset-0 -z-10">
-      <div class="w-full h-full bg-gradient-to-tr from-gray-900 via-gray-800 to-gray-900"></div>
-      <svg class="absolute top-0 left-0 w-full h-full opacity-20" fill="none" viewBox="0 0 100 100">
-        <circle v-for="(dot, index) in dots" :key="index" :cx="dot.x" :cy="dot.y" :r="dot.r" :class="dot.color" fill="currentColor" />
-      </svg>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 flex flex-col-reverse md:flex-row items-center gap-12">
-      <!-- Left Text Content -->
-      <transition name="fade-slide" appear>
-        <div class="flex-1 text-center md:text-left">
+  <section class="bg-gray-900 text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-0 sm:px-0 lg:px-8 py-20 md:py-28">
+      <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
+        <!-- Left Text -->
+        <div class="text-center md:text-left md:order-1 order-2">
           <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Hi, I’m <span class="text-rose-500">Anik Chandra</span> <br />
-            <span class="text-rose-400">Software Developer</span>
+            Hi, I’m <span class="text-rose-500">Anik Chandra</span> <br/>
+            <span class="text-rose-500">Software Developer</span>
           </h1>
-          <p class="mt-6 text-lg text-gray-300 max-w-lg font-mono">
-            I build scalable web apps, create stunning UIs, and write clean, maintainable code.
-            Let’s turn your ideas into <span class="text-amber-400">production-ready software</span>.
+          <p class="mt-6 text-md md:text-lg text-gray-300 max-w-lg font-mono">
+            I build scalable web apps, create stunning UIs, and write clean,
+            maintainable code. Let’s turn your ideas into
+            <span class="text-amber-400">production-ready software</span>.
           </p>
           <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <!-- Primary Button -->
             <NuxtLink
                 to="/projects"
-                class="px-6 py-3 bg-rose-500 hover:bg-rose-600 rounded-lg font-medium transition transform hover:-translate-y-1 motion-safe:duration-300"
+                class="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-rose-500 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               View My Work
             </NuxtLink>
+
+            <!-- Secondary Button -->
             <NuxtLink
                 to="/contact"
-                class="px-6 py-3 border border-rose-300 hover:border-rose-400 rounded-lg font-medium transition transform hover:-translate-y-1 motion-safe:duration-300"
+                class="px-6 py-3 border-2 border-rose-500 text-rose-500 font-semibold rounded-xl hover:bg-rose-500 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg"
             >
               Hire Me
             </NuxtLink>
           </div>
         </div>
-      </transition>
 
-      <!-- Right Image -->
-      <transition name="fade-scale" appear>
-        <div class="flex-1 flex justify-center relative">
-          <img
-              src="https://via.placeholder.com/500x400"
-              alt="Anik Chandra"
-              class="rounded-3xl shadow-2xl transform hover:scale-105 transition duration-500"
-          />
-          <!-- Floating code snippet -->
-          <div class="absolute top-6 right-6 bg-gray-800 p-4 rounded-xl shadow-lg font-mono text-sm text-rose-300 animate-pulse">
-            <code>&lt;code&gt;Hello World&lt;/code&gt;</code>
-          </div>
+        <!-- Right Rotating Code Snippet -->
+        <div class="flex justify-center md:justify-end items-center relative h-[200px] md:h-auto md:order-2 order-1">
+          <transition name="fade-scale" mode="out-in">
+            <div :key="currentSnippet" class="relative bg-gray-900 border border-gray-700 rounded-xl shadow-xl w-full max-w-md overflow-hidden">
+              <!-- Fake Window Header -->
+              <div class="flex gap-2 px-4 py-2 bg-gray-800 border-b border-gray-700">
+                <span class="w-3 h-3 bg-red-500 rounded-full"></span>
+                <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+              </div>
+              <!-- Code Snippet -->
+              <pre class="p-5 text-sm font-mono text-gray-100 whitespace-pre-wrap"><code v-html="currentSnippet"></code></pre>
+            </div>
+          </transition>
         </div>
-      </transition>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-const dots = [
-  { x: 20, y: 30, r: 1, color: 'text-rose-400' },
-  { x: 80, y: 70, r: 1, color: 'text-pink-300' },
-  { x: 50, y: 50, r: 0.8, color: 'text-rose-300' },
-  { x: 15, y: 80, r: 1.2, color: 'text-amber-400' }
-]
+import { ref, onMounted, onBeforeUnmount } from "vue";
 
+// Rotating code snippets
+function escapeHtml(code: string) {
+  return code
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+}
 
+// Update snippets
+const snippets = [
+  escapeHtml(`# Python
+def greet():
+    print("Hello, I’m Anik Chandra!")
+greet()`),
+
+  escapeHtml(`<?php
+// PHP
+echo "Hello, I’m Anik Chandra!";`),
+
+  escapeHtml(`// JavaScript
+function greet() {
+  console.log("Hello, I’m Anik Chandra!");
+}
+greet();`),
+
+  escapeHtml(`// TypeScript
+const greet = (name: string): void => {
+  console.log(\`Hello, I’m \${name}!\`);
+}
+greet("Anik Chandra");`),
+
+  escapeHtml(`# C++
+#include <iostream>
+using namespace std;
+int main() {
+  cout << "Hello, I’m Anik Chandra!" << endl;
+  return 0;
+}`),
+];
+
+const currentIndex = ref(0);
+const currentSnippet = ref(snippets[currentIndex.value]);
+
+let interval: ReturnType<typeof setInterval>;
+
+onMounted(() => {
+  interval = setInterval(() => {
+    currentIndex.value = (currentIndex.value + 1) % snippets.length;
+    currentSnippet.value = snippets[currentIndex.value];
+  }, 2500);
+});
+
+onBeforeUnmount(() => {
+  clearInterval(interval);
+});
 </script>
 
 <style scoped>
-/* Fade + Slide Animation */
-.fade-slide-enter-active {
-  transition: all 0.8s ease;
-}
-.fade-slide-enter-from {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
 /* Fade + Scale Animation */
 .fade-scale-enter-active {
-  transition: all 0.8s ease;
+  transition: all 0.6s ease;
 }
 .fade-scale-enter-from {
   opacity: 0;
