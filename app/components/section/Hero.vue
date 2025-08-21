@@ -21,7 +21,6 @@
             >
               View My Work
             </NuxtLink>
-
             <!-- Secondary Button -->
             <NuxtLink
                 to="/contact"
