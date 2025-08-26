@@ -46,7 +46,6 @@
               Hire Me
             </NuxtLink>
           </div>
-
           <!-- Skills -->
           <div class="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
             <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium">NestJS</span>
