@@ -1,23 +1,23 @@
 <template>
-  <section class="bg-gray-900 text-white overflow-hidden">
+  <section class="bg-[#111111] text-white overflow-hidden">
     <div class="max-w-7xl mx-auto px-0 sm:px-0 lg:px-8 py-20 md:py-28">
       <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <!-- Left Text -->
         <div class="text-center md:text-left md:order-1 order-2">
           <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-            Hi, I’m <span class="text-rose-500">Anik Chandra</span> <br/>
-            <span class="text-rose-500">Software Developer</span>
+            Hi, I’m <span class="text-rose-600">Anik Chandra</span> <br/>
+            <span class="text-rose-600">Software Developer</span>
           </h1>
           <p class="mt-6 text-md md:text-lg text-gray-300 max-w-lg font-mono">
             I build scalable web apps, create stunning UIs, and write clean,
             maintainable code. Let’s turn your ideas into
-            <span class="text-amber-400">production-ready software</span>.
+            <span class="text-rose-400">production-ready software</span>.
           </p>
-          <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <div class="mt-8 flex flex-row gap-4 justify-center md:justify-start">
             <!-- Primary Button -->
             <NuxtLink
                 to="/projects"
-                class="px-6 py-3 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-rose-500 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                class="px-6 py-3 bg-gradient-to-r from-[#9f1019] to-[#c31a25] hover:from-rose-600 hover:to-rose-500 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               View My Work
             </NuxtLink>
