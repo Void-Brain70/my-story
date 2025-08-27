@@ -8,7 +8,6 @@
       </h1>
 
       <div class="flex flex-col md:flex-row items-center gap-12">
-
         <!-- Left: Profile Image -->
         <div class="flex-1 flex justify-center md:justify-start">
           <div class="relative group">
