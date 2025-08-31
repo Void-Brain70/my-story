@@ -6,7 +6,6 @@
       <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-rose-500 mb-12">
         About Me
       </h1>
-
       <div class="flex flex-col md:flex-row items-center gap-12">
         <!-- Left: Profile Image -->
         <div class="flex-1 flex justify-center md:justify-start">
