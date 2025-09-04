@@ -1,7 +1,6 @@
 <template>
   <section id="about" class="bg-gray-900  text-white overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto">
-
       <!-- Section Title -->
       <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-rose-500 mb-12">
         About Me
