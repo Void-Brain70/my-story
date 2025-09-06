@@ -9,7 +9,6 @@
             A short description about your website or brand. Make it catchy and informative.
           </p>
         </div>
-
         <!-- Quick Links -->
         <div>
           <h3 class="text-white text-sm font-semibold mb-4">Quick Links</h3>
