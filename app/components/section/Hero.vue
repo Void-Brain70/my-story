@@ -30,7 +30,6 @@
             </NuxtLink>
           </div>
         </div>
-
         <!-- Right Rotating Code Snippet -->
         <div class="flex justify-center md:justify-end items-center relative h-[200px] md:h-auto md:order-2 order-1">
           <transition name="fade-scale" mode="out-in">
