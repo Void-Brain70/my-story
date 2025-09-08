@@ -60,7 +60,6 @@ function escapeHtml(code: string) {
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;");
 }
-
 // Update snippets
 const snippets = [
   escapeHtml(`# Python
