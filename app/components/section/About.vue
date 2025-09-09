@@ -16,7 +16,6 @@
             <!-- <img src="/assets/profile.jpg" alt="Anik Das" class="absolute top-0 left-0 w-full h-full rounded-3xl object-cover" /> -->
           </div>
         </div>
-
         <!-- Right: About Me Text -->
         <div class="flex-1 text-center md:text-left space-y-6">
           <h2 class="text-3xl sm:text-4xl font-bold text-rose-500">Hi, I’m Anik Das</h2>
