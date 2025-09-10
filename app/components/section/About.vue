@@ -37,8 +37,7 @@
             </NuxtLink>
             <NuxtLink
                 to="/contact"
-                class="px-6 py-3 border-2 border-rose-500 text-rose-500 font-semibold rounded-xl hover:bg-rose-500 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg"
-            >
+                class="px-6 py-3 border-2 border-rose-500 text-rose-500 font-semibold rounded-xl hover:bg-rose-500 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg">
               Hire Me
             </NuxtLink>
           </div>
