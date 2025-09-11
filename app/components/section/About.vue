@@ -1,9 +1,12 @@
 <template>
-  <section id="about" class="bg-gray-900  text-white overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
+  <section id="about" class="bg-[#111111] text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-0 sm:px-0 lg:px-8">
       <!-- Section Title -->
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-center text-rose-500 mb-12">
-        About Me
+<!--      <h1 class="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-[#9f1019] to-[#c31a25] mb-12 p-2">-->
+<!--        { About Me }-->
+<!--      </h1>-->
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent mb-12 p-2">
+        { About Me }
       </h1>
       <div class="flex flex-col md:flex-row items-center gap-12">
         <!-- Left: Profile Image -->

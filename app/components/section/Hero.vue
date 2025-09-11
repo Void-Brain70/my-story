@@ -1,6 +1,6 @@
 <template>
-  <section class="bg-[#111111] text-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-0 sm:px-0 lg:px-8 py-20 md:py-28">
+  <section id="home" class="bg-[#111111] text-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-0 sm:px-0 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <!-- Left Text -->
         <div class="text-center md:text-left md:order-1 order-2">
