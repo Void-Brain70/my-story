@@ -1,72 +1,95 @@
 <template>
-  <section id="about" class="bg-[#111111] text-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-0 sm:px-0 lg:px-8">
+  <section id="about"
+      class="relative text-white overflow-hidden max-w-7xl mx-auto lg:mx-10 py-8 px-6 sm:px-8 lg:px-12 rounded-3xl">
+    <!-- Background gradient (behind glass) -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#1a1a1a] to-[#000000] "></div>
+
+    <!-- Glassmorphism layer -->
+    <div
+        class="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-3xl
+             border border-white/10 shadow-lg shadow-black/30 "
+    ></div>
+
+    <!-- Content -->
+    <div class="relative z-10">
       <!-- Section Title -->
-<!--      <h1 class="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-[#9f1019] to-[#c31a25] mb-12 p-2">-->
-<!--        { About Me }-->
-<!--      </h1>-->
-      <h1 class="text-2xl sm:text-3xl font-extrabold text-center bg-gradient-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent mb-12 p-2">
-        { About Me }
+      <h1
+          class="text-3xl sm:text-4xl font-extrabold text-center
+               bg-gradient-to-r from-rose-500 to-rose-600
+               bg-clip-text text-transparent mb-6 md:mb-12"
+      >
+        &lt; About Me /&gt;
       </h1>
-      <div class="flex flex-col md:flex-row items-center gap-12">
-        <!-- Left: Profile Image -->
-        <div class="flex-1 flex justify-center md:justify-start">
-          <div class="relative group">
-            <div
-                class="w-64 h-64 rounded-3xl bg-gradient-to-tr from-rose-400 via-rose-500 to-pink-400 shadow-2xl transform transition duration-500 group-hover:scale-105">
-            </div>
-            <!-- Optional image inside gradient card -->
-            <!-- <img src="/assets/profile.jpg" alt="Anik Das" class="absolute top-0 left-0 w-full h-full rounded-3xl object-cover" /> -->
-          </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+        <!-- Image -->
+        <div class="flex justify-center">
+          <img
+              src="/images/about.jpg"
+              alt="Anik Das"
+              class="w-full max-w-md h-auto rounded-3xl
+                   shadow-lg shadow-rose-900/40 object-cover"
+          />
         </div>
-        <!-- Right: About Me Text -->
-        <div class="flex-1 text-center md:text-left space-y-6">
-          <h2 class="text-3xl sm:text-4xl font-bold text-rose-500">Hi, I’m Anik Das</h2>
-          <p class="text-lg text-gray-300 leading-relaxed">
-            I’m a passionate Full-Stack Developer specializing in modern web applications using <span class="font-semibold text-rose-400">NestJS, Vue.js, and Tailwind CSS</span>.
-            I create efficient, scalable, and user-friendly solutions.
-          </p>
-          <p class="text-lg text-gray-300 leading-relaxed">
-            I enjoy solving complex problems, learning new technologies, and contributing to open-source projects. My goal is to deliver clean, maintainable, and impactful code.
+
+        <!-- Text -->
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-rose-600 mb-4">
+            Hi, I’m Anik Das
+          </h2>
+
+          <p class="text-md md:text-lg text-gray-300 leading-relaxed mb-4">
+            I am a <span class="text-rose-500 font-semibold">Software Developer</span> with expertise in
+            <span class="text-white">full-stack development</span>, specializing in modern web technologies
+            such as <span class="text-rose-500 font-medium">Nuxt.js, NestJS, and Laravel</span>.
           </p>
 
-          <!-- Optional Buttons -->
-          <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-            <NuxtLink
-                to="/projects"
-                class="px-6 py-3 bg-gradient-to-r from-rose-500 to-rose-400 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+          <p class="text-md md:text-lg text-gray-300 leading-relaxed mb-4">
+            I have a strong foundation in <span class="text-white">computer science</span> and experience
+            building <span class="text-white">scalable, efficient, and user-friendly applications</span>.
+            My focus is on clean code, performance, and seamless deployment workflows.
+          </p>
+
+          <p class="text-md md:text-lg text-gray-300 leading-relaxed mb-6">
+            Outside of coding, I enjoy <span class="text-white">contributing to open-source projects</span>,
+            experimenting with new technologies, and solving complex challenges.
+            My mission is to build impactful solutions that help businesses grow and users thrive.
+          </p>
+
+          <!-- Download CV Button -->
+          <a
+              href="/docs/Resume_of_Anik_Chandra.pdf"
+              target="_blank"
+              download
+              class="inline-flex items-center gap-2 px-6 py-3 rounded-full
+         bg-gradient-to-r from-rose-500 to-rose-600
+         text-white font-semibold shadow-lg
+         hover:from-rose-600 hover:to-rose-700
+         transition-all duration-300 ease-in-out
+         hover:scale-105 hover:shadow-rose-800/40"
+          >
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="w-5 h-5"
             >
-              View My Work
-            </NuxtLink>
-            <NuxtLink
-                to="/contact"
-                class="px-6 py-3 border-2 border-rose-500 text-rose-500 font-semibold rounded-xl hover:bg-rose-500 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg">
-              Hire Me
-            </NuxtLink>
-          </div>
-          <!-- Skills -->
-          <div class="flex flex-wrap gap-3 mt-6 justify-center md:justify-start">
-            <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium">NestJS</span>
-            <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium">Vue.js</span>
-            <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium">Tailwind CSS</span>
-            <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
-            <span class="bg-rose-100 text-rose-800 px-3 py-1 rounded-full text-sm font-medium">TypeScript</span>
-          </div>
+              <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4v12m0 0l-3-3m3 3l3-3m6 3v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2"
+              />
+            </svg>
+            Download CV
+          </a>
         </div>
-
       </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-// No extra script needed for static design
+// No script needed for static design
 </script>
-
-<style scoped>
-/* Optional subtle animations */
-.group:hover div {
-  transition: transform 0.5s ease;
-  transform: scale(1.05);
-}
-</style>

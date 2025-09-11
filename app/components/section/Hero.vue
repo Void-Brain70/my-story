@@ -11,27 +11,27 @@
           <p class="mt-6 text-md md:text-lg text-gray-300 max-w-lg font-mono">
             I build scalable web apps, create stunning UIs, and write clean,
             maintainable code. Let’s turn your ideas into
-            <span class="text-rose-400">production-ready software</span>.
+            <span class="text-rose-500">production-ready software</span>.
           </p>
           <div class="mt-8 flex flex-row gap-4 justify-center md:justify-start">
             <!-- Primary Button -->
             <NuxtLink
                 to="/projects"
-                class="px-6 py-3 bg-gradient-to-r from-[#9f1019] to-[#c31a25] hover:from-rose-600 hover:to-rose-500 text-white font-semibold rounded-xl shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                class="px-6 py-2 md:py-3 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               View My Work
             </NuxtLink>
             <!-- Secondary Button -->
             <NuxtLink
                 to="/contact"
-                class="px-6 py-3 border-2 border-rose-500 text-rose-500 font-semibold rounded-xl hover:bg-rose-500 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                class="px-6 py-2 md:py-3 border-2 border-rose-600 text-rose-500 font-semibold rounded-full hover:bg-rose-600 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg"
             >
               Hire Me
             </NuxtLink>
           </div>
         </div>
         <!-- Right Rotating Code Snippet -->
-        <div class="flex justify-center md:justify-end items-center relative h-[200px] md:h-auto md:order-2 order-1">
+        <div class="flex justify-center md:justify-end items-center relative h-[250px] md:h-auto md:order-2 order-1">
           <transition name="fade-scale" mode="out-in">
             <div :key="currentSnippet" class="relative bg-gray-900 border border-gray-700 rounded-xl shadow-xl w-full max-w-md overflow-hidden">
               <!-- Fake Window Header -->
