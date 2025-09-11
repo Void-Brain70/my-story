@@ -25,10 +25,10 @@
         <!-- Image -->
         <div class="flex justify-center">
           <img
-              src="/images/about.jpg"
+              src="/images/me2.jpeg"
               alt="Anik Das"
               class="w-full max-w-md h-auto rounded-3xl
-                   shadow-lg shadow-rose-900/40 object-cover"
+                   shadow-lg shadow-rose-900/40 bg-rose-900/10 object-cover"
           />
         </div>
 

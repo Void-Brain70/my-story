@@ -8,7 +8,7 @@
             Hi, I’m <span class="text-rose-600">Anik Chandra</span> <br/>
             <span class="text-rose-600">Software Developer</span>
           </h1>
-          <p class="mt-6 text-md md:text-lg text-gray-300 max-w-lg font-mono">
+          <p class="mt-6 text-md md:text-lg text-gray-300 max-w-lg">
             I build scalable web apps, create stunning UIs, and write clean,
             maintainable code. Let’s turn your ideas into
             <span class="text-rose-500">production-ready software</span>.
@@ -41,7 +41,7 @@
                 <span class="w-3 h-3 bg-green-500 rounded-full"></span>
               </div>
               <!-- Code Snippet -->
-              <pre class="p-5 text-sm font-mono text-gray-100 whitespace-pre-wrap"><code v-html="currentSnippet"></code></pre>
+              <pre class="p-5 text-sm text-gray-100 whitespace-pre-wrap"><code v-html="currentSnippet"></code></pre>
             </div>
           </transition>
         </div>
