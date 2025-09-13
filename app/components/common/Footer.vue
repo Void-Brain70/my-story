@@ -18,7 +18,6 @@
             <li><NuxtLink to="/story" class="hover:text-white">Story</NuxtLink></li>
           </ul>
         </div>
-
         <!-- Resources -->
         <div>
           <h3 class="text-white text-sm font-semibold mb-4">Resources</h3>
