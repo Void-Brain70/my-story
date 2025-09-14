@@ -58,7 +58,7 @@ const experiences = [
     role: "Software Developer",
     company: "BD Funnel Builder",
     description: "Building scalable web applications using Laravel, Nuxt.js, and NestJS. Responsible for backend APIs, frontend components, and cloud deployments.",
-    logo: "/images/experience/BFLOGO.png",
+    logo: "/images/experience/bdfb.png",
   },
   {
     period: "01/09/2022 - 10/09/2023",
