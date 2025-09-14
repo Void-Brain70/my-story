@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
         <!-- Left Text -->
         <div class="text-center md:text-left md:order-1 order-2">
-          <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
             Hi, I’m <span class="text-rose-600">Anik Chandra</span> <br/>
             <span class="text-rose-600">Software Developer</span>
           </h1>

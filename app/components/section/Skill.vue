@@ -1,5 +1,5 @@
 <template>
-  <section id="skill" class="bg-[#0D0D0D] text-white overflow-hidden mx-10 py-12 rounded-3xl">
+  <section id="skill" class="bg-[#0D0D0D] text-white overflow-hidden mx-0 md:mx-10 py-6 md:py-12 rounded-3xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Title -->
       <h1
@@ -32,7 +32,7 @@
             v-for="(item, i) in getActiveItems"
             :key="i"
             class="group bg-white/5 border border-white/10 backdrop-blur-xl
-                 rounded-2xl p-6 flex flex-col items-center justify-center
+                 rounded-2xl p-3 md:p-6 flex flex-col items-center justify-center
                  shadow-xl hover:shadow-rose-500/30
                  transform hover:-translate-y-2 transition duration-300"
         >
@@ -41,7 +41,7 @@
               v-if="item.image"
               :src="item.image"
               :alt="item.name"
-              class="h-14 w-14 object-contain mb-4 transition-transform group-hover:scale-110"
+              class="h-10 md:h-14 w-10 md:w-14 object-contain mb-4 transition-transform group-hover:scale-110"
           />
 
           <!-- Skill name -->
