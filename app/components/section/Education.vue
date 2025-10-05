@@ -1,10 +1,10 @@
 <template>
-  <section id="education" class="relative text-white max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+  <section id="education" class="relative text-white max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
     <!-- Title -->
     <h1
         class="text-3xl sm:text-4xl font-extrabold text-center
              bg-gradient-to-r from-rose-500 to-rose-600
-             bg-clip-text text-transparent mb-16"
+             bg-clip-text text-transparent mb-12 md:mb-16"
     >
       &lt; Education /&gt;
     </h1>

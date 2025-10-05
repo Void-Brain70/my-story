@@ -12,7 +12,7 @@
     <div class="pt-12 md:pt-20">
       <Experience/>
     </div>
-    <div class="py-12 md:py-20">
+    <div class="py-8 md:py-20">
       <Education/>
     </div>
   </div>

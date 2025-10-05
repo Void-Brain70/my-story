@@ -1,12 +1,12 @@
 <template>
   <section id="about"
-      class="relative text-white overflow-hidden max-w-7xl mx-auto lg:mx-10 py-8 px-6 sm:px-8 lg:px-12 rounded-3xl">
+      class="relative text-white overflow-hidden max-w-7xl mx-auto lg:mx-10 py-8 px-6 sm:px-8 lg:px-12 rounded-2xl md:rounded-3xl">
     <!-- Background gradient (behind glass) -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#111111] via-[#1a1a1a] to-[#000000] "></div>
 
     <!-- Glassmorphism layer -->
     <div
-        class="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-3xl
+        class="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl
              border border-white/10 shadow-lg shadow-black/30 "
     ></div>
 
@@ -27,7 +27,7 @@
           <img
               src="/images/me2.jpeg"
               alt="Anik Das"
-              class="w-full max-w-md h-auto rounded-3xl
+              class="w-full max-w-md h-auto rounded-2xl md:rounded-3xl
                    shadow-lg shadow-rose-900/40 bg-rose-900/10 object-cover"
           />
         </div>

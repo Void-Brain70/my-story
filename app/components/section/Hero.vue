@@ -11,20 +11,20 @@
           <p class="mt-6 text-md md:text-lg text-gray-300 max-w-lg">
             I build scalable web apps, create stunning UIs, and write clean,
             maintainable code. Let’s turn your ideas into
-            <span class="text-rose-500">production-ready software</span>.
+            <span class="text-rose-500">production-ready software.</span>
           </p>
           <div class="mt-8 flex flex-row gap-4 justify-center md:justify-start">
             <!-- Primary Button -->
             <NuxtLink
                 to="/projects"
-                class="px-6 py-2 md:py-3 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                class="text-sm md:text-md px-4 py-2 md:px-8 md:py-3 bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-500 hover:to-rose-600 text-white font-semibold rounded-full shadow-lg transform transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               View My Work
             </NuxtLink>
             <!-- Secondary Button -->
             <NuxtLink
                 to="/contact"
-                class="px-6 py-2 md:py-3 border-2 border-rose-600 text-rose-500 font-semibold rounded-full hover:bg-rose-600 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+                class="text-sm md:text-md px-4 py-2 md:px-8 md:py-3 border-2 border-rose-600 text-rose-500 font-semibold rounded-full hover:bg-rose-600 hover:text-white transition duration-300 transform hover:-translate-y-1 hover:shadow-lg"
             >
               Hire Me
             </NuxtLink>

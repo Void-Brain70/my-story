@@ -1,9 +1,9 @@
 <template>
-  <section id="experience" class="relative text-white max-w-7xl mx-auto  px-4 sm:px-6 lg:px-8">
+  <section id="experience" class="relative text-white max-w-7xl mx-auto  px-0 sm:px-6 lg:px-8">
     <h1
         class="text-3xl sm:text-4xl font-extrabold text-center
              bg-gradient-to-r from-rose-500 to-rose-600
-             bg-clip-text text-transparent mb-16"
+             bg-clip-text text-transparent mb-12 md:mb-16"
     >
       &lt; Experience /&gt;
     </h1>
@@ -31,7 +31,7 @@
         >
           <!-- Logo -->
           <div v-if="exp.logo" class="mb-4 flex" :class="i % 2 === 0 ? 'justify-start' : 'md:justify-end'">
-            <img :src="exp.logo" alt="Logo" class="h-12 w-auto rounded-full border border-white/20 shadow-md" />
+            <img :src="exp.logo" alt="Logo" class="h-12 shadow-md" />
           </div>
 
           <p class="text-rose-500 font-semibold text-sm md:text-base">{{ exp.period }}</p>

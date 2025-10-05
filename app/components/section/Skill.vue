@@ -1,5 +1,5 @@
 <template>
-  <section id="skill" class="bg-[#0D0D0D] text-white overflow-hidden mx-0 md:mx-10 py-6 md:py-12 rounded-3xl">
+  <section id="skill" class="bg-[#0D0D0D] text-white overflow-hidden mx-0 md:mx-10 py-6 md:py-12 rounded-2xl md:rounded-3xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Title -->
       <h1
