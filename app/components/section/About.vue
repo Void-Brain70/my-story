@@ -1,15 +1,21 @@
 <template>
-  <section id="about"
-      class="relative text-white overflow-hidden max-w-7xl mx-auto lg:mx-10 py-6 sm:py-10 md:py-16 px-4 sm:px-6 md:px-8 lg:px-12 rounded-2xl md:rounded-3xl">
-    <!-- Background gradient -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0D0D0D] via-[#1a1a1a] to-[#111111]"></div>
+  <section id="about" class="relative text-white overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16">
+    <!-- Diagonal stripe background pattern -->
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-[#111111]"></div>
+      <!-- Diagonal stripes -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background: repeating-linear-gradient(45deg, transparent, transparent 50px, #fff 50px, #fff 51px);"></div>
+      </div>
+      <!-- Rose gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-pink-600/5"></div>
+    </div>
 
-    <!-- Glassmorphism layer -->
-    <div class="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/10 shadow-lg shadow-black/30"></div>
-
-    <!-- Animated gradient orbs (smaller on mobile) -->
-    <div class="absolute -top-10 sm:-top-20 -right-10 sm:-right-20 w-40 sm:w-56 md:w-72 h-40 sm:h-56 md:h-72 bg-rose-500/10 rounded-full blur-3xl animate-pulse-slow opacity-60"></div>
-    <div class="absolute -bottom-10 sm:-bottom-20 -left-10 sm:-left-20 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 bg-pink-600/10 rounded-full blur-3xl animate-pulse-slow opacity-50" style="animation-delay: 1.5s;"></div>
+    <!-- Floating particles effect -->
+    <div class="absolute top-1/4 left-10 w-2 h-2 bg-rose-500/40 rounded-full animate-float"></div>
+    <div class="absolute top-1/3 right-20 w-3 h-3 bg-pink-500/30 rounded-full animate-float" style="animation-delay: 0.5s;"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-2 h-2 bg-rose-400/40 rounded-full animate-float" style="animation-delay: 1s;"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-pink-400/30 rounded-full animate-float" style="animation-delay: 1.5s;"></div>
 
     <!-- Content -->
     <div class="relative z-10">
@@ -175,19 +181,27 @@
 </script>
 
 <style scoped>
-/* Slow pulse animation for gradient orbs */
-@keyframes pulse-slow {
+/* Floating animation for particles */
+@keyframes float {
   0%, 100% {
-    opacity: 0.5;
-    transform: scale(1);
+    transform: translateY(0) translateX(0);
+    opacity: 0.4;
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.7;
   }
   50% {
-    opacity: 0.7;
-    transform: scale(1.05);
+    transform: translateY(-10px) translateX(-10px);
+    opacity: 0.4;
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px);
+    opacity: 0.6;
   }
 }
 
-.animate-pulse-slow {
-  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 </style>

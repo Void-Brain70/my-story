@@ -1,14 +1,26 @@
 <template>
   <section id="skill" class="relative text-white overflow-hidden mx-0 md:mx-10 py-6 sm:py-8 md:py-16 rounded-2xl md:rounded-3xl">
-    <!-- Background gradient -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0D0D0D] via-[#1a1a1a] to-[#111111]"></div>
+    <!-- Complex gradient background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0D0D0D]"></div>
 
     <!-- Glassmorphism layer -->
     <div class="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/10 shadow-lg shadow-black/30"></div>
 
-    <!-- Animated gradient orbs (smaller on mobile) -->
-    <div class="absolute top-10 sm:top-20 right-5 sm:right-10 w-40 sm:w-64 h-40 sm:h-64 bg-rose-500/20 rounded-full blur-3xl animate-pulse-slow opacity-40"></div>
-    <div class="absolute bottom-10 sm:bottom-20 left-5 sm:left-10 w-48 sm:w-80 h-48 sm:h-80 bg-pink-600/20 rounded-full blur-3xl animate-pulse-slow opacity-30" style="animation-delay: 1s;"></div>
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 opacity-[0.02]">
+      <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+
+    <!-- Animated gradient orbs with better positioning -->
+    <div class="absolute top-10 sm:top-20 right-5 sm:right-10 w-40 sm:w-64 h-40 sm:h-64 bg-gradient-to-br from-rose-500/25 to-pink-500/20 rounded-full blur-3xl animate-pulse-slow opacity-50"></div>
+    <div class="absolute bottom-10 sm:bottom-20 left-5 sm:left-10 w-48 sm:w-80 h-48 sm:h-80 bg-gradient-to-tr from-pink-600/25 to-rose-600/20 rounded-full blur-3xl animate-pulse-slow opacity-40" style="animation-delay: 1s;"></div>
+
+    <!-- Additional accent orbs -->
+    <div class="absolute top-1/2 left-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-rose-500/10 rounded-full blur-2xl animate-pulse-slow opacity-30" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-36 sm:w-56 h-36 sm:h-56 bg-pink-500/10 rounded-full blur-2xl animate-pulse-slow opacity-25" style="animation-delay: 3s;"></div>
+
+    <!-- Radial gradient overlay for depth -->
+    <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#0a0a0a]/50 rounded-2xl md:rounded-3xl"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Title -->
@@ -206,6 +218,11 @@ const getActiveItems = computed(() => {
 </script>
 
 <style scoped>
+/* Radial gradient utility */
+.bg-gradient-radial {
+  background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+
 /* Slow pulse animation for gradient orbs */
 @keyframes pulse-slow {
   0%, 100% {
@@ -213,13 +230,13 @@ const getActiveItems = computed(() => {
     transform: scale(1);
   }
   50% {
-    opacity: 0.6;
-    transform: scale(1.1);
+    opacity: 0.7;
+    transform: scale(1.08);
   }
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse-slow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* TransitionGroup animations for skill cards */
