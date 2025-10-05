@@ -1,5 +1,5 @@
 <template>
-  <section id="home" class="relative bg-[#111111] text-white overflow-hidden min-h-screen flex items-center py-8 sm:py-12 md:py-6">
+  <section id="home" class="relative bg-[#111111] text-white overflow-hidden min-h-[calc(100vh-4rem)] sm:min-h-screen flex items-center py-6 sm:py-12 md:py-6">
     <!-- Animated gradient orbs (smaller on mobile) -->
     <div class="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 bg-rose-500/20 rounded-full blur-3xl animate-pulse-slow opacity-40"></div>
     <div class="absolute bottom-10 sm:bottom-20 right-5 sm:right-10 w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 bg-pink-600/20 rounded-full blur-3xl animate-pulse-slow opacity-30" style="animation-delay: 1.5s;"></div>
