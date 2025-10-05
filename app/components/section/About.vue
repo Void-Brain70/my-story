@@ -1,21 +1,69 @@
 <template>
   <section id="about" class="relative text-white overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16">
-    <!-- Diagonal stripe background pattern -->
+    <!-- Modern Code Editor Background -->
     <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-[#111111]"></div>
-      <!-- Diagonal stripes -->
-      <div class="absolute inset-0 opacity-5">
-        <div class="absolute inset-0" style="background: repeating-linear-gradient(45deg, transparent, transparent 50px, #fff 50px, #fff 51px);"></div>
-      </div>
-      <!-- Rose gradient overlay -->
-      <div class="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-pink-600/5"></div>
-    </div>
+      <!-- Base dark gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a]"></div>
 
-    <!-- Floating particles effect -->
-    <div class="absolute top-1/4 left-10 w-2 h-2 bg-rose-500/40 rounded-full animate-float"></div>
-    <div class="absolute top-1/3 right-20 w-3 h-3 bg-pink-500/30 rounded-full animate-float" style="animation-delay: 0.5s;"></div>
-    <div class="absolute bottom-1/4 left-1/4 w-2 h-2 bg-rose-400/40 rounded-full animate-float" style="animation-delay: 1s;"></div>
-    <div class="absolute bottom-1/3 right-1/3 w-1.5 h-1.5 bg-pink-400/30 rounded-full animate-float" style="animation-delay: 1.5s;"></div>
+      <!-- Code editor grid pattern -->
+      <div class="absolute inset-0 opacity-[0.025]">
+        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(244, 63, 94, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(244, 63, 94, 0.4) 1px, transparent 1px); background-size: 50px 50px;"></div>
+      </div>
+
+      <!-- Line numbers gutter (left side, hidden on mobile) -->
+      <div class="absolute left-0 top-0 bottom-0 w-14 bg-[#0f0f0f]/60 border-r border-rose-500/10 hidden md:block">
+        <div class="font-mono text-[10px] text-gray-700 pt-24 space-y-4 text-right pr-3">
+          <div>01</div>
+          <div>02</div>
+          <div>03</div>
+          <div class="text-rose-500/40">04</div>
+          <div>05</div>
+          <div>06</div>
+          <div>07</div>
+          <div>08</div>
+          <div>09</div>
+          <div>10</div>
+          <div>11</div>
+          <div>12</div>
+        </div>
+      </div>
+
+      <!-- Code snippet decorations -->
+      <div class="absolute top-16 left-20 md:left-24 font-mono text-xs text-gray-800/40 hidden lg:block space-y-1">
+        <div><span class="text-purple-500/30">class</span> <span class="text-blue-400/30">Developer</span> <span class="text-white/15">extends</span> <span class="text-blue-400/30">Person</span> <span class="text-white/15">&#123;</span></div>
+        <div class="pl-4"><span class="text-emerald-400/30">constructor</span><span class="text-white/15">() &#123;</span></div>
+        <div class="pl-8"><span class="text-yellow-500/30">super</span><span class="text-white/15">();</span></div>
+        <div class="pl-4"><span class="text-white/15">&#125;</span></div>
+        <div><span class="text-white/15">&#125;</span></div>
+      </div>
+
+      <div class="absolute top-40 right-12 font-mono text-xs text-gray-800/40 hidden xl:block space-y-1">
+        <div><span class="text-rose-500/30">const</span> <span class="text-blue-400/30">profile</span> <span class="text-white/15">= &#123;</span></div>
+        <div class="pl-4"><span class="text-emerald-400/30">role</span><span class="text-white/15">:</span> <span class="text-orange-400/30">"Full-Stack"</span><span class="text-white/15">,</span></div>
+        <div class="pl-4"><span class="text-emerald-400/30">passion</span><span class="text-white/15">:</span> <span class="text-orange-400/30">"Coding"</span></div>
+        <div><span class="text-white/15">&#125;</span></div>
+      </div>
+
+      <div class="absolute bottom-24 left-16 md:left-28 font-mono text-xs text-gray-800/40 hidden lg:block">
+        <div><span class="text-yellow-500/30">export default</span> <span class="text-blue-400/30">AnikChandra</span></div>
+      </div>
+
+      <!-- Floating code symbols (large) -->
+      <div class="absolute top-1/3 right-1/4 text-8xl text-rose-500/[0.03] font-mono hidden md:block select-none">&lt;/&gt;</div>
+      <div class="absolute bottom-1/4 left-1/3 text-7xl text-rose-500/[0.03] font-mono hidden md:block select-none">&#123; &#125;</div>
+
+      <!-- Comment style decoration -->
+      <div class="absolute bottom-32 right-16 font-mono text-xs text-green-600/20 hidden xl:block">
+        <div>// Building the future</div>
+        <div>// One line at a time</div>
+      </div>
+
+      <!-- Subtle gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-rose-500/5 via-transparent to-pink-600/5"></div>
+
+      <!-- Animated cursor effect -->
+      <div class="absolute top-1/4 right-10 w-0.5 h-5 bg-rose-400/30 animate-pulse hidden lg:block"></div>
+    </div>
 
     <!-- Content -->
     <div class="relative z-10">
@@ -181,27 +229,5 @@
 </script>
 
 <style scoped>
-/* Floating animation for particles */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-    opacity: 0.4;
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateY(-10px) translateX(-10px);
-    opacity: 0.4;
-  }
-  75% {
-    transform: translateY(-30px) translateX(5px);
-    opacity: 0.6;
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
+/* No additional styles needed */
 </style>
