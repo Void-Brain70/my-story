@@ -1,5 +1,5 @@
 <template>
-  <section id="education" class="relative text-white max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+  <section id="education" class="relative text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Title -->
     <h1
         class="text-3xl sm:text-4xl font-extrabold text-center
@@ -9,63 +9,73 @@
       &lt; Education /&gt;
     </h1>
 
-    <!-- Education Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div
-          v-for="(edu, i) in education"
-          :key="i"
-          class="relative bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-6 group hover:scale-105 hover:shadow-2xl hover:shadow-rose-500/40 transition-transform duration-500 animate-fade-slide"
-          v-intersect="() => visible[i] = true"
-          :class="visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-      >
-        <!-- Icon -->
-        <div class="flex justify-center mb-4">
-          <div class="w-16 h-16 flex items-center justify-center rounded-full bg-rose-500/20 group-hover:bg-rose-500/40 transition-colors duration-500">
-            <svg
-                v-if="i === 0"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 text-rose-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.84 5.042L12 14z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l-6.16-3.422a12.083 12.083 0 00-.84 5.042L12 14z" />
-            </svg>
-            <svg
-                v-else-if="i === 1"
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 text-rose-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 1.343-3 3v6h6v-6c0-1.657-1.343-3-3-3z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 20h14a2 2 0 002-2v-2H3v2a2 2 0 002 2z" />
-            </svg>
-            <svg
-                v-else
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-8 w-8 text-rose-500"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v7m0 0l3-3m-3 3l-3-3" />
-            </svg>
+    <!-- Timeline Container -->
+    <div class="relative">
+      <!-- Vertical Line (hidden on mobile) -->
+      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-rose-500 via-rose-600 to-transparent"></div>
+
+      <!-- Education Items -->
+      <div class="space-y-8 md:space-y-16">
+        <div
+            v-for="(edu, i) in education"
+            :key="i"
+            class="relative transition-all duration-800 ease-out"
+            v-intersect="() => visible[i] = true"
+            :class="visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+            :style="{ transitionDelay: `${i * 150}ms` }"
+        >
+          <!-- Timeline Node (hidden on mobile) -->
+          <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-rose-500 rounded-full ring-4 ring-rose-500/20 z-10"></div>
+
+          <!-- Card Container (alternating sides on desktop) -->
+          <div :class="[
+            'grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center',
+            i % 2 === 0 ? 'md:grid-flow-col-dense' : ''
+          ]">
+            <!-- Spacer for alternating layout (desktop only) -->
+            <div v-if="i % 2 === 0" class="hidden md:block"></div>
+
+            <!-- Education Card -->
+            <div class="group relative">
+              <!-- Background with glassmorphism -->
+              <div class="absolute inset-0 bg-gradient-to-br from-rose-500/10 to-pink-600/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div class="relative bg-gradient-to-br from-[#1a1a1a] to-[#111111] border border-white/10 rounded-2xl p-5 sm:p-6 md:p-8 backdrop-blur-xl group-hover:border-rose-500/50 transition-all duration-500">
+                <!-- Period Badge -->
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-rose-500/20 border border-rose-500/30 rounded-full mb-3 sm:mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 text-rose-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span class="text-rose-400 font-semibold text-xs sm:text-sm">{{ edu.period }}</span>
+                </div>
+
+                <!-- Degree Title -->
+                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-rose-400 transition-colors duration-300">
+                  {{ edu.degree }}
+                </h3>
+
+                <!-- Institute -->
+                <div class="flex items-start gap-2 mb-3 sm:mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-rose-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                  <p class="text-gray-300 font-medium text-sm sm:text-base">{{ edu.institute }}</p>
+                </div>
+
+                <!-- Description -->
+                <p class="text-gray-400 text-sm md:text-base leading-relaxed">
+                  {{ edu.description }}
+                </p>
+
+                <!-- Decorative Corner Accent -->
+                <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-rose-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+            </div>
+
+            <!-- Spacer for alternating layout (desktop only) -->
+            <div v-if="i % 2 !== 0" class="hidden md:block"></div>
           </div>
         </div>
-
-        <!-- Text -->
-        <p class="text-rose-500 font-semibold text-sm md:text-base mb-1">{{ edu.period }}</p>
-        <h3 class="text-xl md:text-2xl font-bold mb-1">{{ edu.degree }}</h3>
-        <p class="text-gray-300 font-medium mb-2">{{ edu.institute }}</p>
-        <p class="text-gray-400 text-sm leading-relaxed">{{ edu.description }}</p>
-
-        <!-- Hover gradient overlay -->
-        <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-rose-500 to-pink-600 opacity-0 group-hover:opacity-20 transition duration-500 pointer-events-none"></div>
       </div>
     </div>
   </section>
@@ -119,18 +129,8 @@ const vIntersect = {
 </script>
 
 <style scoped>
-/* Slide & fade animation */
-@keyframes fadeSlideUp {
-  0% {
-    opacity: 0;
-    transform: translateY(2rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fade-slide {
-  animation: fadeSlideUp 0.8s ease-out forwards;
+/* Smooth transitions for scroll animations */
+.relative {
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 </style>

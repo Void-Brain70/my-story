@@ -1,64 +1,135 @@
 <template>
-  <section id="skill" class="bg-[#0D0D0D] text-white overflow-hidden mx-0 md:mx-10 py-6 md:py-12 rounded-2xl md:rounded-3xl">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="skill" class="relative text-white overflow-hidden mx-0 md:mx-10 py-6 sm:py-8 md:py-16 rounded-2xl md:rounded-3xl">
+    <!-- Background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#0D0D0D] via-[#1a1a1a] to-[#111111]"></div>
+
+    <!-- Glassmorphism layer -->
+    <div class="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/10 shadow-lg shadow-black/30"></div>
+
+    <!-- Animated gradient orbs (smaller on mobile) -->
+    <div class="absolute top-10 sm:top-20 right-5 sm:right-10 w-40 sm:w-64 h-40 sm:h-64 bg-rose-500/20 rounded-full blur-3xl animate-pulse-slow opacity-40"></div>
+    <div class="absolute bottom-10 sm:bottom-20 left-5 sm:left-10 w-48 sm:w-80 h-48 sm:h-80 bg-pink-600/20 rounded-full blur-3xl animate-pulse-slow opacity-30" style="animation-delay: 1s;"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Title -->
       <h1
-          class="text-3xl sm:text-4xl font-extrabold text-center
+          class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center
                bg-gradient-to-r from-rose-500 to-rose-600
-               bg-clip-text text-transparent mb-6 md:mb-12"
+               bg-clip-text text-transparent mb-6 sm:mb-8 md:mb-12"
       >
         &lt; My Skills /&gt;
       </h1>
 
-      <!-- Tabs -->
-      <div class="flex flex-wrap justify-center mb-10 gap-3">
+      <!-- Tabs with modern pill design -->
+      <div class="flex flex-wrap justify-center mb-8 sm:mb-10 md:mb-12 gap-2 sm:gap-3">
         <button
             v-for="(tab, i) in tabs"
             :key="i"
             @click="activeTab = tab.key"
-            class="px-5 py-2 rounded-full text-sm font-semibold transition-all
-                 backdrop-blur-md border border-white/10 shadow-sm"
+            class="group relative px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300
+                 backdrop-blur-md border overflow-hidden"
             :class="activeTab === tab.key
-            ? 'bg-gradient-to-r from-rose-500 to-rose-600 text-white shadow-lg scale-105'
-            : 'bg-white/5 text-gray-300 hover:bg-white/10'"
+            ? 'border-rose-500/50 text-white shadow-lg shadow-rose-500/30 scale-105'
+            : 'border-white/10 text-gray-300 hover:border-rose-500/30 hover:scale-105'"
         >
-          {{ tab.label }}
+          <!-- Active background gradient -->
+          <div
+              v-if="activeTab === tab.key"
+              class="absolute inset-0 bg-gradient-to-r from-rose-500 to-rose-600 -z-10"
+          ></div>
+          <!-- Inactive background -->
+          <div
+              v-else
+              class="absolute inset-0 bg-white/5 group-hover:bg-white/10 -z-10 transition-colors duration-300"
+          ></div>
+
+          <!-- Icon based on tab -->
+          <span class="flex items-center gap-1.5 sm:gap-2">
+            <svg v-if="tab.key === 'languages'" xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+            <svg v-else-if="tab.key === 'frameworks'" xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+            <svg v-else-if="tab.key === 'tools'" xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <svg v-else-if="tab.key === 'databases'" xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+            <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+            </svg>
+            {{ tab.label }}
+          </span>
         </button>
       </div>
 
-      <!-- Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <!-- Skills Grid with transition -->
+      <TransitionGroup
+          name="skills-grid"
+          tag="div"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
+      >
         <div
             v-for="(item, i) in getActiveItems"
-            :key="i"
-            class="group bg-white/5 border border-white/10 backdrop-blur-xl
-                 rounded-2xl p-3 md:p-6 flex flex-col items-center justify-center
-                 shadow-xl hover:shadow-rose-500/30
-                 transform hover:-translate-y-2 transition duration-300"
+            :key="activeTab + '-' + i"
+            class="group relative skill-card"
+            :style="{
+              '--enter-delay': `${i * 50}ms`,
+              transitionDelay: `${i * 50}ms`
+            }"
         >
-          <!-- Icon -->
-          <img
-              v-if="item.image"
-              :src="item.image"
-              :alt="item.name"
-              class="h-10 md:h-14 w-10 md:w-14 object-contain mb-4 transition-transform group-hover:scale-110"
-          />
+          <!-- Glow effect on hover -->
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl blur opacity-0 group-hover:opacity-75 transition-opacity duration-500"></div>
 
-          <!-- Skill name -->
-          <span class="text-sm font-medium text-center">{{ item.name }}</span>
+          <!-- Card content -->
+          <div class="relative bg-gradient-to-br from-[#1a1a1a] to-[#111111] border border-white/10 backdrop-blur-xl
+                      rounded-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-between h-full
+                      group-hover:border-rose-500/50 transition-all duration-500">
 
-          <!-- Progress bar (optional if has level) -->
-          <div v-if="item.level" class="w-full mt-3">
-            <div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-              <div
-                  class="h-2 bg-gradient-to-r from-rose-500 to-rose-600 rounded-full transition-all duration-700"
-                  :style="{ width: item.level + '%' }"
-              ></div>
+            <!-- Icon container with hover effect -->
+            <div class="relative mb-3 sm:mb-4 p-2 sm:p-2.5 md:p-3 rounded-xl bg-white/5 group-hover:bg-rose-500/10 transition-colors duration-300">
+              <img
+                  v-if="item.image"
+                  :src="item.image"
+                  :alt="item.name"
+                  class="h-8 sm:h-10 md:h-12 w-8 sm:w-10 md:w-12 object-contain transition-transform group-hover:scale-110 group-hover:rotate-6 duration-300"
+              />
             </div>
-            <p class="text-[11px] text-gray-400 mt-1 text-right">{{ item.level }}%</p>
+
+            <!-- Skill name -->
+            <span class="text-xs sm:text-sm md:text-base font-semibold text-center text-white group-hover:text-rose-400 transition-colors duration-300 leading-tight">
+              {{ item.name }}
+            </span>
+
+            <!-- Progress bar -->
+            <div v-if="item.level" class="w-full mt-3 sm:mt-4">
+              <!-- Level percentage -->
+              <div class="flex justify-between items-center mb-1.5 sm:mb-2">
+                <span class="text-[10px] sm:text-xs text-gray-400">Proficiency</span>
+                <span class="text-[10px] sm:text-xs font-bold text-rose-400">{{ item.level }}%</span>
+              </div>
+
+              <!-- Progress track -->
+              <div class="relative w-full h-1.5 sm:h-2 bg-white/10 rounded-full overflow-hidden">
+                <!-- Animated progress fill -->
+                <div
+                    class="progress-fill h-full bg-gradient-to-r from-rose-500 via-rose-600 to-pink-600 rounded-full relative overflow-hidden"
+                    :style="{ width: item.level + '%' }"
+                >
+                  <!-- Shimmer effect -->
+                  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent shimmer"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Corner accent -->
+            <div class="absolute top-0 right-0 w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-gradient-to-bl from-rose-500/20 to-transparent rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </div>
-      </div>
+      </TransitionGroup>
     </div>
   </section>
 </template>
@@ -135,18 +206,69 @@ const getActiveItems = computed(() => {
 </script>
 
 <style scoped>
-/* Smooth fade-in when switching tabs */
-.grid > div {
-  animation: fadeIn 0.6s ease-in-out;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
+/* Slow pulse animation for gradient orbs */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
     transform: scale(1);
   }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* TransitionGroup animations for skill cards */
+.skills-grid-enter-active {
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: var(--enter-delay, 0ms);
+}
+
+.skills-grid-leave-active {
+  transition: all 0.4s ease-out;
+  transition-delay: 0ms;
+}
+
+.skills-grid-enter-from {
+  opacity: 0;
+  transform: scale(0.7) translateY(30px);
+}
+
+.skills-grid-leave-to {
+  opacity: 0;
+  transform: scale(0.7) translateY(-20px);
+  position: absolute;
+}
+
+.skills-grid-move {
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Skill card base transition */
+.skill-card {
+  transition: all 0.3s ease;
+}
+
+/* Shimmer animation for progress bars */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+}
+
+/* Progress fill animation */
+.progress-fill {
+  transition: width 1s ease-out;
 }
 </style>
