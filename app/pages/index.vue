@@ -4,7 +4,6 @@
     <div class="pt-16 sm:pt-20 md:pt-8">
       <Hero/>
     </div>
-
     <!-- About Section -->
     <div class="pt-12 sm:pt-16 md:pt-20">
       <About/>
