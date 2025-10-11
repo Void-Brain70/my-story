@@ -8,7 +8,6 @@
     <div class="pt-12 sm:pt-16 md:pt-20">
       <About/>
     </div>
-
     <!-- Skills Section -->
     <div class="pt-12 sm:pt-16 md:pt-20">
       <Skill/>
