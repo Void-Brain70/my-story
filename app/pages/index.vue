@@ -16,7 +16,6 @@
     <div class="pt-12 sm:pt-16 md:pt-20">
       <Experience/>
     </div>
-
     <!-- Education Section -->
     <div class="pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20">
       <Education/>
