@@ -76,7 +76,7 @@
           <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
             <!-- Primary Button -->
             <NuxtLink
-                to="/projects"
+                to="#home"
                 class="group relative inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-rose-500 to-rose-600 text-white font-semibold text-sm sm:text-base rounded-full overflow-hidden hover:from-rose-600 hover:to-rose-700 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-rose-500/50"
             >
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
