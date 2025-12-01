@@ -86,15 +86,14 @@
             </NuxtLink>
 
             <!-- Secondary Button -->
-            <NuxtLink
-                to="/contact"
-                class="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-rose-500/50 text-rose-400 font-semibold text-sm sm:text-base rounded-full hover:bg-rose-500/10 hover:border-rose-500 transition-all duration-300 hover:scale-105"
+            <a
+                href="#contact"
+                @click.prevent="scrollToContact"
+                class="group inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-2.5 sm:py-3 border-2 border-rose-500/50 text-rose-400 font-semibold text-sm sm:text-base rounded-full hover:bg-rose-500/10 hover:border-rose-500 transition-all duration-300 hover:scale-105 cursor-pointer"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
+              <Icon name="mdi:email-outline" class="h-4 w-4 sm:h-5 sm:w-5" />
               Hire Me
-            </NuxtLink>
+            </a>
           </div>
         </div>
 
@@ -138,6 +137,14 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from "vue";
+
+// Scroll to contact section
+const scrollToContact = () => {
+  const element = document.getElementById('contact');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 // Rotating code snippets
 function escapeHtml(code: string) {

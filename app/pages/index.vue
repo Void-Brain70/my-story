@@ -1,26 +1,30 @@
 <template>
-  <div class="overflow-x-hidden">
+  <main class="overflow-x-hidden" role="main">
     <!-- Hero Section -->
-    <div class="pt-16 sm:pt-20 md:pt-8">
+    <article id="home" class="pt-16 sm:pt-20 md:pt-8" aria-label="Introduction">
       <Hero/>
-    </div>
+    </article>
     <!-- About Section -->
-    <div class="pt-12 sm:pt-16 md:pt-20">
+    <article id="about" class="pt-12 sm:pt-16 md:pt-20" aria-label="About Anik Chandra">
       <About/>
-    </div>
+    </article>
     <!-- Skills Section -->
-    <div class="pt-12 sm:pt-16 md:pt-20">
+    <article id="skill" class="pt-12 sm:pt-16 md:pt-20" aria-label="Technical Skills">
       <Skill/>
-    </div>
+    </article>
     <!-- Experience Section -->
-    <div class="pt-12 sm:pt-16 md:pt-20">
+    <article id="experience" class="pt-12 sm:pt-16 md:pt-20" aria-label="Work Experience">
       <Experience/>
-    </div>
+    </article>
     <!-- Education Section -->
-    <div class="pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20">
+    <article id="education" class="pt-12 sm:pt-16 md:pt-20" aria-label="Education Background">
       <Education/>
-    </div>
-  </div>
+    </article>
+    <!-- Contact Section -->
+    <article id="contact" class="pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20" aria-label="Get in Touch">
+      <Contact/>
+    </article>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -29,6 +33,84 @@ import About from "~/components/section/About.vue";
 import Skill from "~/components/section/Skill.vue";
 import Experience from "~/components/section/Experience.vue";
 import Education from "~/components/section/Education.vue";
+import Contact from "~/components/section/Contact.vue";
+
+// SEO Meta Tags
+useSeoMeta({
+  title: 'Anik Chandra | Full-Stack Developer - Portfolio',
+  ogTitle: 'Anik Chandra | Full-Stack Developer - Laravel, Vue.js, NestJS Expert',
+  description: 'Anik Chandra is a Full-Stack Developer specializing in Laravel, Vue.js, Nuxt.js, and NestJS. Explore my portfolio showcasing skills, experience, and projects in modern web development.',
+  ogDescription: 'Full-Stack Developer specializing in Laravel, Vue.js, Nuxt.js, and NestJS. Building scalable web applications with passion and precision.',
+  ogImage: '/images/me.png',
+  ogUrl: 'https://anikchandra.dev',
+  twitterCard: 'summary_large_image',
+  twitterTitle: 'Anik Chandra | Full-Stack Developer',
+  twitterDescription: 'Full-Stack Developer specializing in Laravel, Vue.js, Nuxt.js, and NestJS. Building scalable web applications.',
+  twitterImage: '/images/me.png',
+});
+
+// JSON-LD Structured Data for SEO
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Anik Chandra',
+        url: 'https://anikchandra.dev',
+        image: '/images/me.png',
+        jobTitle: 'Full-Stack Developer',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'Freelance',
+        },
+        sameAs: [
+          'https://github.com/Void-Brain70',
+          'https://www.linkedin.com/in/anik-chandra-a5a62022a/',
+        ],
+        knowsAbout: [
+          'Laravel',
+          'Vue.js',
+          'Nuxt.js',
+          'NestJS',
+          'TypeScript',
+          'JavaScript',
+          'PHP',
+          'MySQL',
+          'MongoDB',
+          'Tailwind CSS',
+        ],
+        email: 'mailto:dasssanik124102@gmail.com',
+        telephone: '+8801521215839',
+        address: {
+          '@type': 'PostalAddress',
+          addressCountry: 'Bangladesh',
+        },
+        alumniOf: {
+          '@type': 'CollegeOrUniversity',
+          name: 'University of Asia Pacific',
+          url: 'https://www.uap-bd.edu/',
+        },
+      }),
+    },
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Anik Chandra Portfolio',
+        url: 'https://anikchandra.dev',
+        description: 'Personal portfolio website of Anik Chandra, a Full-Stack Developer specializing in Laravel, Vue.js, and NestJS.',
+        author: {
+          '@type': 'Person',
+          name: 'Anik Chandra',
+        },
+      }),
+    },
+  ],
+});
+
 </script>
 
 <style scoped>

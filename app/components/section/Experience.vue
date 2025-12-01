@@ -83,10 +83,10 @@
 
                   <!-- Company -->
                   <div class="flex items-center gap-2 mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-rose-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    <p class="text-gray-300 font-semibold text-base sm:text-lg">{{ exp.company }}</p>
+                    <Icon name="mdi:briefcase-outline" class="h-4 w-4 sm:h-5 sm:w-5 text-rose-500 flex-shrink-0" />
+                    <a :href="exp.link" target="_blank" rel="noopener noreferrer" class="text-gray-300 font-semibold text-base sm:text-lg hover:text-rose-400 transition-colors">
+                      {{ exp.company }}
+                    </a>
                   </div>
 
                   <!-- Description -->
@@ -119,13 +119,15 @@ const experiences = [
     period: "12/09/2023 - Running",
     role: "Software Developer",
     company: "BD Funnel Builder",
+    link: "https://bdfunnelbuilder.com/",
     description: "Building scalable web applications using Laravel, Nuxt.js, and NestJS. Responsible for backend APIs, frontend components, and cloud deployments.",
     logo: "/images/experience/bdfb.png",
   },
   {
     period: "01/09/2022 - 10/09/2023",
     role: "Web Developer",
-    company: "Nexttive Solution",
+    company: "Nextive Solution",
+    link: "https://www.nextivesolution.com/",
     description: "Developed interactive UIs and dashboards using VueJS and TailwindCSS, ensuring cross-browser compatibility and responsive design.",
     logo: "/images/experience/nsLogo.jpeg",
   },

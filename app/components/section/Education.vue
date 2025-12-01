@@ -56,10 +56,10 @@
 
                 <!-- Institute -->
                 <div class="flex items-start gap-2 mb-3 sm:mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-rose-500 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                  <p class="text-gray-300 font-medium text-sm sm:text-base">{{ edu.institute }}</p>
+                  <Icon name="mdi:school-outline" class="h-4 w-4 sm:h-5 sm:w-5 text-rose-500 mt-0.5 flex-shrink-0" />
+                  <a :href="edu.link" target="_blank" rel="noopener noreferrer" class="text-gray-300 font-medium text-sm sm:text-base hover:text-rose-400 transition-colors">
+                    {{ edu.institute }}
+                  </a>
                 </div>
 
                 <!-- Description -->
@@ -88,23 +88,26 @@ const visible = ref<boolean[]>([]);
 
 const education = [
   {
-    period: "2018 - 2022",
+    period: "Graduation Year - 2022",
     degree: "BSc in Computer Science & Engineering",
     institute: "University of Asia Pacific",
+    link: "https://www.uap-bd.edu/",
     description:
         "Specialized in software engineering, web & mobile development, cloud computing, and team-based projects. Completed capstone projects in full-stack web applications and cloud deployment.",
   },
   {
-    period: "2015 - 2016",
+    period: "HSC Year - 2016",
     degree: "Higher Secondary Certificate (Science)",
     institute: "Govt Science College, Dhaka",
+    link: "https://www.gsctd.edu.bd/",
     description:
         "Focused on mathematics, physics, and computer science fundamentals. Participated in programming competitions and science fairs, strengthening analytical skills.",
   },
   {
-    period: "2013 - 2014",
+    period: "SSC Year - 2014",
     degree: "Secondary School Certificate (Science)",
     institute: "Dashani Mohanpur High School, Chandpur",
+    link: "https://dmhighschool.edu.bd/",
     description:
         "Graduated with honors in science subjects. Developed problem-solving abilities and participated in coding clubs and extracurricular STEM activities.",
   },

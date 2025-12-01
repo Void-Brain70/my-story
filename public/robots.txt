@@ -1,2 +1,12 @@
+# Robots.txt for Anik Chandra
+# https://anik-chandra-me.vercel.app/
+
 User-Agent: *
-Disallow:
+Allow: /
+
+# Sitemap location
+Sitemap: https://anik-chandra-me.vercel.app/sitemap.xml
+
+# Disallow sensitive paths
+Disallow: /api/
+Disallow: /_nuxt/

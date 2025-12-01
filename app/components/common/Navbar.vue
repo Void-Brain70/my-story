@@ -5,13 +5,22 @@
 
         <!-- Logo -->
         <div class="flex items-center">
-          <h1 class="text-rose-500 text-2xl font-bold">{ Anik Chandra }</h1>
+          <a href="#home" @click.prevent="scrollToHome" class="text-rose-500 text-2xl font-bold cursor-pointer hover:text-rose-600 transition-colors">
+            { Anik Chandra }
+          </a>
         </div>
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center gap-x-6">
           <div v-for="(item , i) in navItems" :key="i">
-            <NuxtLink :to="item.to" class="nav-item">{{ item.label }}</NuxtLink>
+            <a
+              :href="item.href"
+              @click.prevent="scrollToSection(item.href)"
+              class="nav-item"
+              :class="{ 'nav-item-active': activeSection === item.href.replace('#', '') }"
+            >
+              {{ item.label }}
+            </a>
           </div>
         </div>
 
@@ -34,9 +43,16 @@
     <transition name="slide-fade">
       <div v-if="isOpen" class="md:hidden bg-black/80 backdrop-blur-md border-t border-gray-700">
         <div class="flex flex-col px-4 py-5 space-y-4">
-          <NuxtLink v-for="(item, i) in navItems" :key="i" :to="item.to" class="mobile-link">
+          <a
+            v-for="(item, i) in navItems"
+            :key="i"
+            :href="item.href"
+            @click.prevent="scrollToSection(item.href); isOpen = false"
+            class="mobile-link"
+            :class="{ 'mobile-link-active': activeSection === item.href.replace('#', '') }"
+          >
             {{ item.label }}
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </transition>
@@ -44,17 +60,57 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const isOpen = ref(false)
+const activeSection = ref('home')
+
+const scrollToHome = () => {
+  const element = document.getElementById('home');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+const scrollToSection = (href: string) => {
+  const targetId = href.replace('#', '');
+  const element = document.getElementById(targetId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 const navItems = [
-  { label: 'Projects', to: '/' },
-  { label: 'Expertise', to: '/' },
-  { label: 'About', to: '/' },
-  { label: 'Contact', to: '/' },
-  { label: 'Story', to: '/' }
+  { label: 'Home', href: '#home' },
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skill' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Education', href: '#education' },
+  { label: 'Contact', href: '#contact' }
 ]
+
+// Track active section on scroll
+const handleScroll = () => {
+  const sections = navItems.map(item => item.href.replace('#', ''));
+  const scrollPosition = window.scrollY + 100;
+
+  for (let i = sections.length - 1; i >= 0; i--) {
+    const section = document.getElementById(sections[i]);
+    if (section && section.offsetTop <= scrollPosition) {
+      activeSection.value = sections[i];
+      break;
+    }
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+  handleScroll();
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
 </script>
 
 <style scoped>
@@ -91,12 +147,27 @@ const navItems = [
   @apply text-rose-600;
 }
 
+/* Active state for desktop */
+.nav-item-active {
+  @apply text-rose-600;
+}
+
+.nav-item-active::before,
+.nav-item-active::after {
+  @apply opacity-100;
+}
+
 /* Mobile menu links */
 .mobile-link {
   @apply text-white text-lg font-medium transition-colors duration-300;
 }
 
 .mobile-link:hover {
+  @apply text-rose-500;
+}
+
+/* Active state for mobile */
+.mobile-link-active {
   @apply text-rose-500;
 }
 
