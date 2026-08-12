@@ -5,37 +5,34 @@
       <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 40px 40px;"></div>
     </div>
 
-    <!-- Gradient overlay -->
-    <div class="absolute inset-0 bg-gradient-to-t from-rose-500/5 via-transparent to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/5 via-transparent to-transparent"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-      <!-- Main Footer Content -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-8 sm:mb-12">
+
         <!-- Brand / About -->
         <div class="col-span-1 sm:col-span-2 lg:col-span-1">
           <div class="flex items-center gap-2 mb-3 sm:mb-4">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-lg flex items-center justify-center">
               <span class="text-white font-bold text-base sm:text-lg">AC</span>
             </div>
-            <h2 class="text-white text-lg sm:text-xl font-bold bg-gradient-to-r from-rose-500 to-rose-600 bg-clip-text text-transparent">
+            <h2 class="text-white text-lg sm:text-xl font-bold bg-gradient-to-r from-cyan-500 to-teal-500 bg-clip-text text-transparent">
               Anik Chandra
             </h2>
           </div>
           <p class="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xs">
             Full-Stack Developer specializing in modern web technologies. Building scalable applications with passion and precision.
           </p>
-          <!-- Email -->
           <div class="flex items-center gap-2 mt-3 sm:mt-4">
-            <Icon name="mdi:email-outline" class="h-4 w-4 text-rose-500" />
-            <a href="mailto:dasssanik124102@gmail.com" class="text-xs sm:text-sm text-gray-400 hover:text-rose-400 transition-colors">
+            <Icon name="mdi:email-outline" class="h-4 w-4 text-cyan-500" />
+            <a href="mailto:dasssanik124102@gmail.com" class="text-xs sm:text-sm text-gray-400 hover:text-cyan-400 transition-colors">
               dasssanik124102@gmail.com
             </a>
           </div>
-          <!-- Phone -->
           <div class="flex items-center gap-2 mt-2">
-            <Icon name="mdi:phone-outline" class="h-4 w-4 text-rose-500" />
-            <a href="tel:+8801521215839" class="text-xs sm:text-sm text-gray-400 hover:text-rose-400 transition-colors">
-              01521215839
+            <Icon name="mdi:phone-outline" class="h-4 w-4 text-cyan-500" />
+            <a href="tel:+8801521215839" class="text-xs sm:text-sm text-gray-400 hover:text-cyan-400 transition-colors">
+              +880 1521 215 839
             </a>
           </div>
         </div>
@@ -44,12 +41,12 @@
           <!-- Quick Links -->
           <div>
             <h3 class="text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4 flex items-center gap-2">
-              <span class="h-1 w-1 bg-rose-500 rounded-full"></span>
+              <span class="h-1 w-1 bg-cyan-500 rounded-full"></span>
               Quick Links
             </h3>
             <ul class="space-y-2 sm:space-y-2.5">
               <li v-for="(link, i) in footerLinks" :key="i">
-                <a :href="link.href" @click.prevent="scrollToSection(link.href)" class="group inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 hover:text-rose-400 transition-colors cursor-pointer">
+                <a :href="link.href" @click.prevent="scrollToSection(link.href)" class="group inline-flex items-center gap-2 text-xs sm:text-sm text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer">
                   <Icon name="mdi:chevron-right" class="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                   {{ link.label }}
                 </a>
@@ -60,11 +57,13 @@
           <!-- Tech Stack -->
           <div>
             <h3 class="text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4 flex items-center gap-2">
-              <span class="h-1 w-1 bg-rose-500 rounded-full"></span>
+              <span class="h-1 w-1 bg-cyan-500 rounded-full"></span>
               Tech Stack
             </h3>
-            <ul v-for="(item ,i) in techStack" :key="i" class="py-1">
-              <li class="text-xs sm:text-sm text-gray-400">{{ item }}</li>
+            <ul class="space-y-2">
+              <li v-for="(item, i) in techStack" :key="i" class="text-xs sm:text-sm text-gray-400">
+                {{ item }}
+              </li>
             </ul>
           </div>
         </div>
@@ -72,15 +71,15 @@
         <!-- Social Links -->
         <div>
           <h3 class="text-white text-sm sm:text-base font-semibold mb-3 sm:mb-4 flex items-center justify-center md:justify-start gap-2">
-            <span class="h-1 w-1 bg-rose-500 rounded-full "></span>
+            <span class="h-1 w-1 bg-cyan-500 rounded-full"></span>
             Connect
           </h3>
           <div class="flex justify-center md:justify-start flex-wrap gap-2 sm:gap-3">
             <a v-for="(social, i) in socialLinks" :key="i"
                :href="social.href" target="_blank" rel="noopener noreferrer"
-               class="group w-9 h-9 sm:w-10 sm:h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:border-rose-500/50 hover:bg-rose-500/10 transition-all duration-300"
+               class="group w-9 h-9 sm:w-10 sm:h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300"
                :aria-label="social.label">
-              <Icon :name="social.icon" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-rose-400 transition-colors" />
+              <Icon :name="social.icon" class="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-cyan-400 transition-colors" />
             </a>
           </div>
         </div>
@@ -92,10 +91,9 @@
           <p class="text-xs sm:text-sm text-gray-500 text-center sm:text-left">
             &copy; {{ new Date().getFullYear() }} Anik Chandra. All rights reserved.
           </p>
-          <div class="flex items-center gap-4 sm:gap-6">
-            <a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-rose-400 transition-colors">Privacy Policy</a>
-            <a href="#" class="text-xs sm:text-sm text-gray-500 hover:text-rose-400 transition-colors">Terms of Service</a>
-          </div>
+          <p class="text-xs sm:text-sm text-gray-600 text-center">
+            Built with <span class="text-cyan-500">Nuxt.js</span> &amp; <span class="text-cyan-500">TailwindCSS</span>
+          </p>
         </div>
       </div>
     </div>
@@ -111,18 +109,21 @@ const scrollToSection = (href: string) => {
   }
 };
 
-const techStack = ['Laravel', 'NestJS', 'Nuxt.js', 'Vue.js'];
+const techStack = ['Laravel', 'NestJS', 'Nuxt.js', 'Vue.js', 'TypeScript'];
+
 const footerLinks = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skill' },
+  { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
   { label: 'Education', href: '#education' },
+  { label: 'Contact', href: '#contact' },
 ];
+
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/Void-Brain70', icon: 'mdi:github' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/anik-chandra-a5a62022a/', icon: 'mdi:linkedin' },
-  { label: 'Twitter', href: 'https://twitter.com', icon: 'mdi:twitter' },
-  { label: 'Instagram', href: 'https://instagram.com', icon: 'mdi:instagram' },
+  { label: 'WhatsApp', href: 'https://wa.me/8801521215839', icon: 'mdi:whatsapp' },
 ];
 </script>

@@ -5,6 +5,14 @@ export default defineNuxtConfig({
   ssr: true,
   modules: ['@nuxtjs/tailwindcss', '@nuxt/icon', '@nuxtjs/sitemap'],
 
+  runtimeConfig: {
+    public: {
+      emailjsServiceId: process.env.EMAILJS_SERVICE_ID || 'service_gdt557p',
+      emailjsTemplateId: process.env.EMAILJS_TEMPLATE_ID || 'template_bkavvk2',
+      emailjsPublicKey: process.env.EMAILJS_PUBLIC_KEY || 'GjFU8_AGyYtnNHsiL',
+    },
+  },
+
   site: {
     url: 'https://anik-chandra-me.vercel.app/',
     name: 'Anik Chandra',

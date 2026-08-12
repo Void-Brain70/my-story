@@ -1,38 +1,29 @@
 <template>
   <section id="skill" class="relative text-white overflow-hidden mx-0 md:mx-10 py-6 sm:py-8 md:py-16 rounded-2xl md:rounded-3xl">
-    <!-- Complex gradient background -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#1a1a1a] to-[#0D0D0D]"></div>
-
-    <!-- Glassmorphism layer -->
     <div class="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-2xl md:rounded-3xl border border-white/10 shadow-lg shadow-black/30"></div>
 
-    <!-- Grid pattern overlay -->
     <div class="absolute inset-0 opacity-[0.02]">
       <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
     </div>
 
-    <!-- Animated gradient orbs with better positioning -->
-    <div class="absolute top-10 sm:top-20 right-5 sm:right-10 w-40 sm:w-64 h-40 sm:h-64 bg-gradient-to-br from-rose-500/25 to-pink-500/20 rounded-full blur-3xl animate-pulse-slow opacity-50"></div>
-    <div class="absolute bottom-10 sm:bottom-20 left-5 sm:left-10 w-48 sm:w-80 h-48 sm:h-80 bg-gradient-to-tr from-pink-600/25 to-rose-600/20 rounded-full blur-3xl animate-pulse-slow opacity-40" style="animation-delay: 1s;"></div>
+    <div class="absolute top-10 sm:top-20 right-5 sm:right-10 w-40 sm:w-64 h-40 sm:h-64 bg-gradient-to-br from-cyan-500/25 to-teal-500/20 rounded-full blur-3xl animate-pulse-slow opacity-50"></div>
+    <div class="absolute bottom-10 sm:bottom-20 left-5 sm:left-10 w-48 sm:w-80 h-48 sm:h-80 bg-gradient-to-tr from-teal-500/25 to-cyan-600/20 rounded-full blur-3xl animate-pulse-slow opacity-40" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 left-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-cyan-500/10 rounded-full blur-2xl animate-pulse-slow opacity-30" style="animation-delay: 2s;"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-36 sm:w-56 h-36 sm:h-56 bg-teal-500/10 rounded-full blur-2xl animate-pulse-slow opacity-25" style="animation-delay: 3s;"></div>
 
-    <!-- Additional accent orbs -->
-    <div class="absolute top-1/2 left-1/4 w-32 sm:w-48 h-32 sm:h-48 bg-rose-500/10 rounded-full blur-2xl animate-pulse-slow opacity-30" style="animation-delay: 2s;"></div>
-    <div class="absolute bottom-1/3 right-1/3 w-36 sm:w-56 h-36 sm:h-56 bg-pink-500/10 rounded-full blur-2xl animate-pulse-slow opacity-25" style="animation-delay: 3s;"></div>
-
-    <!-- Radial gradient overlay for depth -->
     <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#0a0a0a]/50 rounded-2xl md:rounded-3xl"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Title -->
       <h1
           class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center
-               bg-gradient-to-r from-rose-500 to-rose-600
+               bg-gradient-to-r from-cyan-500 to-teal-500
                bg-clip-text text-transparent mb-6 sm:mb-8 md:mb-12"
       >
         &lt; My Skills /&gt;
       </h1>
 
-      <!-- Tabs with modern pill design -->
+      <!-- Tabs -->
       <div class="flex flex-wrap justify-center mb-8 sm:mb-10 md:mb-12 gap-2 sm:gap-3">
         <button
             v-for="(tab, i) in tabs"
@@ -41,21 +32,11 @@
             class="group relative px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300
                  backdrop-blur-md border overflow-hidden"
             :class="activeTab === tab.key
-            ? 'border-rose-500/50 text-white shadow-lg shadow-rose-500/30 scale-105'
-            : 'border-white/10 text-gray-300 hover:border-rose-500/30 hover:scale-105'"
+            ? 'border-cyan-500/50 text-white shadow-lg shadow-cyan-500/30 scale-105'
+            : 'border-white/10 text-gray-300 hover:border-cyan-500/30 hover:scale-105'"
         >
-          <!-- Active background gradient -->
-          <div
-              v-if="activeTab === tab.key"
-              class="absolute inset-0 bg-gradient-to-r from-rose-500 to-rose-600 -z-10"
-          ></div>
-          <!-- Inactive background -->
-          <div
-              v-else
-              class="absolute inset-0 bg-white/5 group-hover:bg-white/10 -z-10 transition-colors duration-300"
-          ></div>
-
-          <!-- Icon based on tab -->
+          <div v-if="activeTab === tab.key" class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-teal-500 -z-10"></div>
+          <div v-else class="absolute inset-0 bg-white/5 group-hover:bg-white/10 -z-10 transition-colors duration-300"></div>
           <span class="flex items-center gap-1.5 sm:gap-2">
             <svg v-if="tab.key === 'languages'" xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
@@ -78,7 +59,7 @@
         </button>
       </div>
 
-      <!-- Skills Grid with transition -->
+      <!-- Skills Grid -->
       <TransitionGroup
           name="skills-grid"
           tag="div"
@@ -88,21 +69,15 @@
             v-for="(item, i) in getActiveItems"
             :key="activeTab + '-' + i"
             class="group relative skill-card"
-            :style="{
-              '--enter-delay': `${i * 50}ms`,
-              transitionDelay: `${i * 50}ms`
-            }"
+            :style="{ '--enter-delay': `${i * 50}ms`, transitionDelay: `${i * 50}ms` }"
         >
-          <!-- Glow effect on hover -->
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-rose-500 to-pink-600 rounded-2xl blur opacity-0 group-hover:opacity-75 transition-opacity duration-500"></div>
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-2xl blur opacity-0 group-hover:opacity-75 transition-opacity duration-500"></div>
 
-          <!-- Card content -->
           <div class="relative bg-gradient-to-br from-[#1a1a1a] to-[#111111] border border-white/10 backdrop-blur-xl
                       rounded-2xl p-3 sm:p-4 md:p-6 flex flex-col items-center justify-between h-full
-                      group-hover:border-rose-500/50 transition-all duration-500">
+                      group-hover:border-cyan-500/50 transition-all duration-500">
 
-            <!-- Icon container with hover effect -->
-            <div class="relative mb-3 sm:mb-4 p-2 sm:p-2.5 md:p-3 rounded-xl bg-white/5 group-hover:bg-rose-500/10 transition-colors duration-300">
+            <div class="relative mb-3 sm:mb-4 p-2 sm:p-2.5 md:p-3 rounded-xl bg-white/5 group-hover:bg-cyan-500/10 transition-colors duration-300">
               <img
                   v-if="item.image"
                   :src="item.image"
@@ -111,34 +86,26 @@
               />
             </div>
 
-            <!-- Skill name -->
-            <span class="text-xs sm:text-sm md:text-base font-semibold text-center text-white group-hover:text-rose-400 transition-colors duration-300 leading-tight">
+            <span class="text-xs sm:text-sm md:text-base font-semibold text-center text-white group-hover:text-cyan-400 transition-colors duration-300 leading-tight">
               {{ item.name }}
             </span>
 
-            <!-- Progress bar -->
             <div v-if="item.level" class="w-full mt-3 sm:mt-4">
-              <!-- Level percentage -->
               <div class="flex justify-between items-center mb-1.5 sm:mb-2">
-                <span class="text-[10px] sm:text-xs text-gray-400">Proficiency</span>
-                <span class="text-[10px] sm:text-xs font-bold text-rose-400">{{ item.level }}%</span>
+                <span class="text-[10px] sm:text-xs text-gray-400">{{ getLevelLabel(item.level) }}</span>
+                <span class="text-[10px] sm:text-xs font-bold text-cyan-400">{{ item.level }}%</span>
               </div>
-
-              <!-- Progress track -->
               <div class="relative w-full h-1.5 sm:h-2 bg-white/10 rounded-full overflow-hidden">
-                <!-- Animated progress fill -->
                 <div
-                    class="progress-fill h-full bg-gradient-to-r from-rose-500 via-rose-600 to-pink-600 rounded-full relative overflow-hidden"
+                    class="progress-fill h-full bg-gradient-to-r from-cyan-500 via-cyan-600 to-teal-500 rounded-full relative overflow-hidden"
                     :style="{ width: item.level + '%' }"
                 >
-                  <!-- Shimmer effect -->
                   <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent shimmer"></div>
                 </div>
               </div>
             </div>
 
-            <!-- Corner accent -->
-            <div class="absolute top-0 right-0 w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-gradient-to-bl from-rose-500/20 to-transparent rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="absolute top-0 right-0 w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-gradient-to-bl from-cyan-500/20 to-transparent rounded-tr-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
         </div>
       </TransitionGroup>
@@ -149,7 +116,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-// Tabs
 const tabs = [
   { key: "languages", label: "Languages" },
   { key: "frameworks", label: "Frameworks" },
@@ -160,7 +126,13 @@ const tabs = [
 
 const activeTab = ref("languages");
 
-// Data
+const getLevelLabel = (level: number): string => {
+  if (level >= 90) return 'Expert';
+  if (level >= 75) return 'Advanced';
+  if (level >= 55) return 'Intermediate';
+  return 'Beginner';
+};
+
 const programmingLanguages = [
   { name: "JavaScript", image: "/images/skill/js.png", level: 90 },
   { name: "TypeScript", image: "/images/skill/ts.svg", level: 90 },
@@ -171,75 +143,59 @@ const programmingLanguages = [
 ];
 const frameworks = [
   { name: "Laravel", image: "/images/skill/laravel2.png", level: 90 },
+  { name: "VueJS", image: "/images/skill/Vue.png", level: 85 },
+  { name: "NuxtJS", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg", level: 80 },
   { name: "NestJS", image: "/images/skill/NestJS.svg", level: 70 },
   { name: "Filament", image: "/images/skill/filament.png", level: 65 },
-  { name: "NuxtJS", image: "/images/skill/nuxt.svg", level: 80 },
-  { name: "VueJS", image: "/images/skill/Vue.png", level: 85 },
 ];
 const tools = [
-  { name: "Git", image: "/images/skill/git.png", level: 80 },
-  { name: "GitHub Actions", image: "/images/skill/github.png", level: 75 },
+  { name: "Postman", image: "/images/skill/postman.svg", level: 85 },
+  { name: "Git", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", level: 80 },
+  { name: "GitHub Actions", image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg", level: 75 },
   { name: "Vercel", image: "/images/skill/vercel.svg", level: 70 },
   { name: "Forge", image: "/images/skill/forge.webp", level: 60 },
-  { name: "Postman", image: "/images/skill/postman.svg", level: 85 },
 ];
 const databases = [
-  { name: "MySQL", image: "/images/skill/mysql.png", level: 80 },
-  { name: "SQLite", image: "/images/skill/sqlite.png", level: 90 },
+  { name: "MySQL", image: "/images/skill/mysql.png", level: 85 },
+  { name: "SQLite", image: "/images/skill/sqlite.png", level: 80 },
   { name: "MongoDB", image: "/images/skill/mongo.png", level: 65 },
 ];
 const webDesign = [
   { name: "HTML", image: "/images/skill/html.png", level: 95 },
   { name: "CSS", image: "/images/skill/css.jpg", level: 90 },
   { name: "TailwindCSS", image: "/images/skill/tailwind.png", level: 85 },
-  { name: "PrimeVue", image: "/images/skill/primevue.png", level: 50 },
   { name: "Bootstrap", image: "/images/skill/bootstrap.png", level: 80 },
   { name: "Sass", image: "/images/skill/sass.png", level: 75 },
   { name: "Vuetify", image: "/images/skill/vuetify.svg", level: 60 },
+  { name: "PrimeVue", image: "/images/skill/primevue.png", level: 55 },
 ];
 
-// Computed
 const getActiveItems = computed(() => {
   switch (activeTab.value) {
-    case "languages":
-      return programmingLanguages;
-    case "frameworks":
-      return frameworks;
-    case "tools":
-      return tools;
-    case "databases":
-      return databases;
-    case "webDesign":
-      return webDesign;
-    default:
-      return [];
+    case "languages": return programmingLanguages;
+    case "frameworks": return frameworks;
+    case "tools": return tools;
+    case "databases": return databases;
+    case "webDesign": return webDesign;
+    default: return [];
   }
 });
 </script>
 
 <style scoped>
-/* Radial gradient utility */
 .bg-gradient-radial {
   background: radial-gradient(circle at center, var(--tw-gradient-stops));
 }
 
-/* Slow pulse animation for gradient orbs */
 @keyframes pulse-slow {
-  0%, 100% {
-    opacity: 0.4;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(1.08);
-  }
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.08); }
 }
 
 .animate-pulse-slow {
   animation: pulse-slow 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* TransitionGroup animations for skill cards */
 .skills-grid-enter-active {
   transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   transition-delay: var(--enter-delay, 0ms);
@@ -265,26 +221,19 @@ const getActiveItems = computed(() => {
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Skill card base transition */
 .skill-card {
   transition: all 0.3s ease;
 }
 
-/* Shimmer animation for progress bars */
 @keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .shimmer {
   animation: shimmer 2s infinite;
 }
 
-/* Progress fill animation */
 .progress-fill {
   transition: width 1s ease-out;
 }

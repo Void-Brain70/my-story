@@ -1,26 +1,23 @@
 <template>
   <main class="overflow-x-hidden" role="main">
-    <!-- Hero Section -->
     <article id="home" class="pt-16 sm:pt-20 md:pt-8" aria-label="Introduction">
       <Hero/>
     </article>
-    <!-- About Section -->
     <article id="about" class="pt-12 sm:pt-16 md:pt-20" aria-label="About Anik Chandra">
       <About/>
     </article>
-    <!-- Skills Section -->
     <article id="skill" class="pt-12 sm:pt-16 md:pt-20" aria-label="Technical Skills">
       <Skill/>
     </article>
-    <!-- Experience Section -->
+    <article id="projects" class="pt-12 sm:pt-16 md:pt-20" aria-label="Projects">
+      <Projects/>
+    </article>
     <article id="experience" class="pt-12 sm:pt-16 md:pt-20" aria-label="Work Experience">
       <Experience/>
     </article>
-    <!-- Education Section -->
     <article id="education" class="pt-12 sm:pt-16 md:pt-20" aria-label="Education Background">
       <Education/>
     </article>
-    <!-- Contact Section -->
     <article id="contact" class="pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20" aria-label="Get in Touch">
       <Contact/>
     </article>
@@ -31,11 +28,11 @@
 import Hero from "~/components/section/Hero.vue";
 import About from "~/components/section/About.vue";
 import Skill from "~/components/section/Skill.vue";
+import Projects from "~/components/section/Projects.vue";
 import Experience from "~/components/section/Experience.vue";
 import Education from "~/components/section/Education.vue";
 import Contact from "~/components/section/Contact.vue";
 
-// SEO Meta Tags
 useSeoMeta({
   title: 'Anik Chandra | Full-Stack Developer - Portfolio',
   ogTitle: 'Anik Chandra | Full-Stack Developer - Laravel, Vue.js, NestJS Expert',
@@ -49,7 +46,6 @@ useSeoMeta({
   twitterImage: '/images/me.png',
 });
 
-// JSON-LD Structured Data for SEO
 useHead({
   script: [
     {
@@ -61,37 +57,16 @@ useHead({
         url: 'https://anikchandra.dev',
         image: '/images/me.png',
         jobTitle: 'Full-Stack Developer',
-        worksFor: {
-          '@type': 'Organization',
-          name: 'Freelance',
-        },
+        worksFor: { '@type': 'Organization', name: 'Freelance' },
         sameAs: [
           'https://github.com/Void-Brain70',
           'https://www.linkedin.com/in/anik-chandra-a5a62022a/',
         ],
-        knowsAbout: [
-          'Laravel',
-          'Vue.js',
-          'Nuxt.js',
-          'NestJS',
-          'TypeScript',
-          'JavaScript',
-          'PHP',
-          'MySQL',
-          'MongoDB',
-          'Tailwind CSS',
-        ],
+        knowsAbout: ['Laravel', 'Vue.js', 'Nuxt.js', 'NestJS', 'TypeScript', 'JavaScript', 'PHP', 'MySQL', 'MongoDB', 'Tailwind CSS'],
         email: 'mailto:dasssanik124102@gmail.com',
         telephone: '+8801521215839',
-        address: {
-          '@type': 'PostalAddress',
-          addressCountry: 'Bangladesh',
-        },
-        alumniOf: {
-          '@type': 'CollegeOrUniversity',
-          name: 'University of Asia Pacific',
-          url: 'https://www.uap-bd.edu/',
-        },
+        address: { '@type': 'PostalAddress', addressCountry: 'Bangladesh' },
+        alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Asia Pacific', url: 'https://www.uap-bd.edu/' },
       }),
     },
     {
@@ -102,17 +77,9 @@ useHead({
         name: 'Anik Chandra Portfolio',
         url: 'https://anikchandra.dev',
         description: 'Personal portfolio website of Anik Chandra, a Full-Stack Developer specializing in Laravel, Vue.js, and NestJS.',
-        author: {
-          '@type': 'Person',
-          name: 'Anik Chandra',
-        },
+        author: { '@type': 'Person', name: 'Anik Chandra' },
       }),
     },
   ],
 });
-
 </script>
-
-<style scoped>
-
-</style>
