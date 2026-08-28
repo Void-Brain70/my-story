@@ -15,13 +15,13 @@
     <div class="absolute inset-0 bg-gradient-radial from-transparent via-transparent to-[#0a0a0a]/50 rounded-2xl md:rounded-3xl"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1
+      <h2
           class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center
                bg-gradient-to-r from-cyan-500 to-teal-500
                bg-clip-text text-transparent mb-6 sm:mb-8 md:mb-12"
       >
         &lt; My Skills /&gt;
-      </h1>
+      </h2>
 
       <!-- Tabs -->
       <div class="flex flex-wrap justify-center mb-8 sm:mb-10 md:mb-12 gap-2 sm:gap-3">

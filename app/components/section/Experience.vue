@@ -1,12 +1,12 @@
 <template>
   <section id="experience" class="relative text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1
+    <h2
         class="text-3xl sm:text-4xl font-extrabold text-center
              bg-gradient-to-r from-cyan-500 to-teal-500
              bg-clip-text text-transparent mb-12 md:mb-16"
     >
       &lt; Experience /&gt;
-    </h1>
+    </h2>
 
     <div class="relative">
       <!-- Vertical timeline line -->

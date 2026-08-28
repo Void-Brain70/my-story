@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="relative text-white overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16">
+  <section id="about" aria-labelledby="about-heading" class="relative scroll-mt-20 text-white overflow-hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16">
     <!-- Code editor background decoration -->
     <div class="absolute inset-0">
       <div class="absolute inset-0 bg-gradient-to-br from-[#0a0a0a] via-[#111111] to-[#0a0a0a]"></div>
@@ -51,13 +51,14 @@
 
     <!-- Content -->
     <div class="relative z-10">
-      <h1
+      <h2
+          id="about-heading"
           class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center
                bg-gradient-to-r from-cyan-500 to-teal-500
                bg-clip-text text-transparent mb-6 sm:mb-8 md:mb-12"
       >
-        &lt; About Me /&gt;
-      </h1>
+        &lt; About Anik Chandra /&gt;
+      </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
         <!-- Image -->
@@ -68,8 +69,11 @@
               <div class="relative overflow-hidden rounded-xl sm:rounded-2xl">
                 <img
                     src="/images/image3.jpeg"
-                    alt="Anik Chandra - Full-Stack Developer specializing in Laravel, Vue.js, and NestJS"
+                    alt="Portrait of Anik Chandra, Full-Stack Developer specializing in Laravel, Vue.js and NestJS"
+                    width="768"
+                    height="768"
                     loading="lazy"
+                    decoding="async"
                     class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -82,9 +86,9 @@
         <!-- Text Content -->
         <div class="order-2 md:order-2">
           <div class="mb-5 sm:mb-6 text-center md:text-left">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
+            <h3 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
               Hi, I'm <span class="bg-gradient-to-r from-cyan-500 to-teal-500 bg-clip-text text-transparent">Anik Chandra</span>
-            </h2>
+            </h3>
             <div class="h-1 w-20 sm:w-24 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full mx-auto md:mx-0"></div>
           </div>
 
@@ -100,7 +104,7 @@
                     </svg>
                   </div>
                   <div class="flex-1 min-w-0">
-                    <h3 class="text-cyan-400 font-semibold mb-1 text-sm sm:text-base">Full-Stack Developer</h3>
+                    <h4 class="text-cyan-400 font-semibold mb-1 text-sm sm:text-base">Full-Stack Developer</h4>
                     <p class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed">
                       Expertise in <span class="text-cyan-500 font-medium">Nuxt.js, NestJS, and Laravel</span>. Building scalable and efficient applications for 3+ years.
                     </p>
@@ -119,7 +123,7 @@
                     </svg>
                   </div>
                   <div class="flex-1 min-w-0">
-                    <h3 class="text-cyan-400 font-semibold mb-1 text-sm sm:text-base">Quality & Performance</h3>
+                    <h4 class="text-cyan-400 font-semibold mb-1 text-sm sm:text-base">Quality &amp; Performance</h4>
                     <p class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed">
                       Strong foundation in <span class="text-white">computer science</span> with focus on clean code, performance optimization, and seamless deployment workflows.
                     </p>
@@ -138,7 +142,7 @@
                     </svg>
                   </div>
                   <div class="flex-1 min-w-0">
-                    <h3 class="text-cyan-400 font-semibold mb-1 text-sm sm:text-base">Innovation & Growth</h3>
+                    <h4 class="text-cyan-400 font-semibold mb-1 text-sm sm:text-base">Innovation &amp; Growth</h4>
                     <p class="text-xs sm:text-sm md:text-base text-gray-300 leading-relaxed">
                       Passionate about <span class="text-white">open-source contributions</span> and experimenting with new technologies to build impactful solutions.
                     </p>
@@ -163,6 +167,9 @@
             <a
                 href="/docs/Resume_of_Anik_Chandra.pdf"
                 target="_blank"
+                rel="noopener"
+                type="application/pdf"
+                aria-label="Download the CV of Anik Chandra as PDF"
                 download
                 class="group relative inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-full overflow-hidden
                        bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold text-sm sm:text-base

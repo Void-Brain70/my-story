@@ -4,9 +4,11 @@
 User-Agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://anik-chandra-me.vercel.app/sitemap.xml
+# Allow crawlers to fetch build assets so the page can be rendered.
+# (Blocking /_nuxt/ prevents Googlebot from loading JS/CSS and hurts indexing.)
+Allow: /_nuxt/
+Allow: /images/
 
-# Disallow sensitive paths
 Disallow: /api/
-Disallow: /_nuxt/
+
+Sitemap: https://anik-chandra-me.vercel.app/sitemap.xml

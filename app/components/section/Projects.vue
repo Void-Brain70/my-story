@@ -5,13 +5,13 @@
     <div class="absolute bottom-20 left-10 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl opacity-30 pointer-events-none"></div>
 
     <div class="relative z-10">
-      <h1
+      <h2
           class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-center
                bg-gradient-to-r from-cyan-500 to-teal-500
                bg-clip-text text-transparent mb-4 sm:mb-6"
       >
         &lt; Projects /&gt;
-      </h1>
+      </h2>
       <p class="text-center text-gray-400 text-sm sm:text-base mb-10 sm:mb-14 max-w-xl mx-auto">
         A selection of projects I've built — from full-stack platforms and API services
         to <span class="text-cyan-400 font-semibold">30+ ed-tech products</span> serving learners across Bangladesh.
@@ -99,9 +99,9 @@
       <div class="mt-16 sm:mt-20">
         <div class="flex items-center gap-4 mb-3">
           <div class="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/40"></div>
-          <h2 class="text-lg sm:text-xl md:text-2xl font-bold text-white whitespace-nowrap">
+          <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white whitespace-nowrap">
             Ed-Tech <span class="bg-gradient-to-r from-cyan-500 to-teal-500 bg-clip-text text-transparent">Platforms</span>
-          </h2>
+          </h3>
           <div class="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/40"></div>
         </div>
         <p class="text-center text-gray-500 font-mono text-xs sm:text-sm mb-8 sm:mb-10">
@@ -132,9 +132,9 @@
               />
             </div>
 
-            <h3 class="text-white font-bold text-sm sm:text-base leading-snug group-hover/card:text-cyan-400 transition-colors duration-300">
+            <h4 class="text-white font-bold text-sm sm:text-base leading-snug group-hover/card:text-cyan-400 transition-colors duration-300">
               {{ item.title }}
-            </h3>
+            </h4>
             <p class="text-cyan-400/70 text-[10px] sm:text-[11px] font-medium mt-0.5 mb-2.5">{{ item.type }}</p>
 
             <p class="text-gray-400 text-xs leading-relaxed flex-1 mb-3.5">

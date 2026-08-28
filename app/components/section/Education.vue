@@ -1,12 +1,12 @@
 <template>
   <section id="education" class="relative text-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h1
+    <h2
         class="text-3xl sm:text-4xl font-extrabold text-center
              bg-gradient-to-r from-cyan-500 to-teal-500
              bg-clip-text text-transparent mb-4"
     >
       &lt; Education /&gt;
-    </h1>
+    </h2>
     <p class="text-center text-gray-500 font-mono text-xs sm:text-sm mb-10 md:mb-12">
       // academic milestones
     </p>

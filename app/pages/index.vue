@@ -1,28 +1,29 @@
 <template>
-  <main class="overflow-x-hidden" role="main">
-    <article id="home" class="pt-16 sm:pt-20 md:pt-8" aria-label="Introduction">
+  <div class="overflow-x-hidden">
+    <div class="pt-16 sm:pt-20 md:pt-8">
       <Hero/>
-    </article>
-    <article id="about" class="pt-12 sm:pt-16 md:pt-20" aria-label="About Anik Chandra">
+    </div>
+    <div class="pt-12 sm:pt-16 md:pt-20">
       <About/>
-    </article>
-    <article id="skill" class="pt-12 sm:pt-16 md:pt-20" aria-label="Technical Skills">
+    </div>
+    <div class="pt-12 sm:pt-16 md:pt-20">
       <Skill/>
-    </article>
-    <article id="projects" class="pt-12 sm:pt-16 md:pt-20" aria-label="Projects">
+    </div>
+    <div class="pt-12 sm:pt-16 md:pt-20">
       <Projects/>
-    </article>
-    <article id="experience" class="pt-12 sm:pt-16 md:pt-20" aria-label="Work Experience">
+    </div>
+    <div class="pt-12 sm:pt-16 md:pt-20">
       <Experience/>
-    </article>
-    <article id="education" class="pt-12 sm:pt-16 md:pt-20" aria-label="Education Background">
+    </div>
+    <div class="pt-12 sm:pt-16 md:pt-20">
       <Education/>
-    </article>
-    <article id="contact" class="pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20" aria-label="Get in Touch">
+    </div>
+    <div class="pt-12 pb-12 sm:pt-16 sm:pb-16 md:pt-20 md:pb-20">
       <Contact/>
-    </article>
-  </main>
+    </div>
+  </div>
 </template>
+
 <script setup lang="ts">
 import Hero from "~/components/section/Hero.vue";
 import About from "~/components/section/About.vue";
@@ -32,53 +33,198 @@ import Experience from "~/components/section/Experience.vue";
 import Education from "~/components/section/Education.vue";
 import Contact from "~/components/section/Contact.vue";
 
+import { profile, sameAs } from "~/data/profile";
+import { projects, edTech } from "~/data/projects";
+import { experiences } from "~/data/experience";
+import { education } from "~/data/education";
+import { allSkillNames } from "~/data/skills";
+
+const { public: { siteUrl } } = useRuntimeConfig()
+const origin = String(siteUrl).replace(/\/$/, '')
+
+// Title stays under ~60 chars and description under ~160 so neither is
+// truncated in the SERP.
+const pageTitle = 'Anik Chandra | Full-Stack Developer (Laravel, Nuxt, NestJS)'
+const pageDescription =
+    'Anik Chandra — Full-Stack Developer in Dhaka, Bangladesh. 3+ years building Laravel, Vue.js, Nuxt.js and NestJS applications, including 30+ ed-tech platforms.'
+
+// Dedicated 1200x630 social card - square avatars get cropped badly by X and
+// LinkedIn, and Google wants >=1200px wide for image-rich results.
+const ogImage = `${origin}/images/og-image.png`
+
 useSeoMeta({
-  title: 'Anik Chandra | Full-Stack Developer - Portfolio',
-  ogTitle: 'Anik Chandra | Full-Stack Developer - Laravel, Vue.js, NestJS Expert',
-  description: 'Anik Chandra is a Full-Stack Developer specializing in Laravel, Vue.js, Nuxt.js, and NestJS. Explore my portfolio showcasing skills, experience, and projects in modern web development.',
-  ogDescription: 'Full-Stack Developer specializing in Laravel, Vue.js, Nuxt.js, and NestJS. Building scalable web applications with passion and precision.',
-  ogImage: '/images/me.png',
-  ogUrl: 'https://anikchandra.dev',
+  title: pageTitle,
+  description: pageDescription,
+
+  ogType: 'profile',
+  ogSiteName: profile.name,
+  ogLocale: 'en_US',
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
+  ogUrl: `${origin}/`,
+  ogImage,
+  ogImageSecureUrl: ogImage,
+  ogImageType: 'image/png',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: `${profile.name} — ${profile.jobTitle}`,
+  profileFirstName: profile.firstName,
+  profileLastName: profile.lastName,
+
   twitterCard: 'summary_large_image',
-  twitterTitle: 'Anik Chandra | Full-Stack Developer',
-  twitterDescription: 'Full-Stack Developer specializing in Laravel, Vue.js, Nuxt.js, and NestJS. Building scalable web applications.',
-  twitterImage: '/images/me.png',
-});
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+  twitterImage: ogImage,
+  twitterImageAlt: `${profile.name} — ${profile.jobTitle}`,
+})
+
+const currentRole = experiences[0]!
+
+const personId = `${origin}/#person`
+const websiteId = `${origin}/#website`
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': personId,
+      name: profile.name,
+      givenName: profile.firstName,
+      familyName: profile.lastName,
+      url: `${origin}/`,
+      mainEntityOfPage: { '@id': `${origin}/#webpage` },
+      image: {
+        '@type': 'ImageObject',
+        '@id': `${origin}/#primaryimage`,
+        url: `${origin}/images/me.png`,
+        width: 500,
+        height: 500,
+        caption: `${profile.name} — ${profile.jobTitle}`,
+      },
+      jobTitle: profile.jobTitle,
+      description: pageDescription,
+      worksFor: {
+        '@type': 'Organization',
+        name: currentRole.company,
+        url: currentRole.link,
+      },
+      hasOccupation: {
+        '@type': 'Occupation',
+        name: profile.jobTitle,
+        occupationLocation: {
+          '@type': 'Country',
+          name: profile.countryName,
+        },
+        skills: allSkillNames.join(', '),
+      },
+      sameAs,
+      knowsAbout: allSkillNames,
+      knowsLanguage: [
+        { '@type': 'Language', name: 'English', alternateName: 'en' },
+        { '@type': 'Language', name: 'Bengali', alternateName: 'bn' },
+      ],
+      email: `mailto:${profile.email}`,
+      telephone: profile.phone,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: profile.locality,
+        addressRegion: profile.region,
+        addressCountry: profile.country,
+      },
+      alumniOf: education.map(edu => ({
+        '@type': 'EducationalOrganization',
+        name: edu.institute,
+        url: edu.link,
+      })),
+      // Roles carry the dates that the Experience timeline shows visually.
+      hasCredential: education.map(edu => ({
+        '@type': 'EducationalOccupationalCredential',
+        credentialCategory: 'degree',
+        name: edu.credential,
+        educationalLevel: edu.degree,
+        recognizedBy: {
+          '@type': 'EducationalOrganization',
+          name: edu.institute,
+          url: edu.link,
+        },
+        dateCreated: edu.endDate,
+      })),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      url: `${origin}/`,
+      name: `${profile.name} Portfolio`,
+      description: pageDescription,
+      inLanguage: 'en',
+      publisher: { '@id': personId },
+      author: { '@id': personId },
+    },
+    {
+      '@type': 'ProfilePage',
+      '@id': `${origin}/#webpage`,
+      url: `${origin}/`,
+      name: pageTitle,
+      description: pageDescription,
+      isPartOf: { '@id': websiteId },
+      about: { '@id': personId },
+      mainEntity: { '@id': personId },
+      primaryImageOfPage: { '@id': `${origin}/#primaryimage` },
+      inLanguage: 'en',
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${origin}/#projects`,
+      name: 'Featured Projects',
+      numberOfItems: projects.length,
+      itemListOrder: 'https://schema.org/ItemListOrderDescending',
+      itemListElement: projects.map((project, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'CreativeWork',
+          name: project.title,
+          description: project.description,
+          genre: project.type,
+          keywords: project.tech.join(', '),
+          author: { '@id': personId },
+          ...(project.live ? { url: project.live } : {}),
+        },
+      })),
+    },
+    {
+      '@type': 'ItemList',
+      '@id': `${origin}/#ed-tech`,
+      name: 'Ed-Tech Platforms',
+      numberOfItems: edTech.length,
+      itemListElement: edTech.map((item, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        item: {
+          '@type': 'WebApplication',
+          name: item.title,
+          url: item.live,
+          description: item.description,
+          applicationCategory: 'EducationalApplication',
+          operatingSystem: 'Web',
+          keywords: item.tech.join(', '),
+          author: { '@id': personId },
+        },
+      })),
+    },
+  ],
+}
 
 useHead({
+  link: [
+    { rel: 'canonical', href: `${origin}/` },
+  ],
   script: [
     {
       type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Person',
-        name: 'Anik Chandra',
-        url: 'https://anikchandra.dev',
-        image: '/images/me.png',
-        jobTitle: 'Full-Stack Developer',
-        worksFor: { '@type': 'Organization', name: 'Freelance' },
-        sameAs: [
-          'https://github.com/Void-Brain70',
-          'https://www.linkedin.com/in/anik-chandra-a5a62022a/',
-        ],
-        knowsAbout: ['Laravel', 'Vue.js', 'Nuxt.js', 'NestJS', 'TypeScript', 'JavaScript', 'PHP', 'MySQL', 'MongoDB', 'Tailwind CSS'],
-        email: 'mailto:dasssanik124102@gmail.com',
-        telephone: '+8801521215839',
-        address: { '@type': 'PostalAddress', addressCountry: 'Bangladesh' },
-        alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Asia Pacific', url: 'https://www.uap-bd.edu/' },
-      }),
-    },
-    {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Anik Chandra Portfolio',
-        url: 'https://anikchandra.dev',
-        description: 'Personal portfolio website of Anik Chandra, a Full-Stack Developer specializing in Laravel, Vue.js, and NestJS.',
-        author: { '@type': 'Person', name: 'Anik Chandra' },
-      }),
+      innerHTML: JSON.stringify(jsonLd),
     },
   ],
-});
+})
 </script>
