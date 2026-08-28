@@ -110,22 +110,31 @@ const visible = ref<boolean[]>([]);
 
 const experiences = [
   {
-    period: "Dec 2023 – Present",
-    role: "Software Developer",
+    period: "Jan 2026 – Present",
+    role: "Software Developer Level-II",
+    company: "Nextive Solution",
+    link: "https://www.nextivesolution.com/",
+    description: "Designing and shipping features across the full stack — Laravel and NestJS services, REST APIs and real-time modules on the backend, server-rendered Nuxt 3 frontends in TypeScript on the front. Also own deployments and CI pipelines on Vercel, Laravel Forge and GitHub Actions, along with schema design, query optimisation and code review.",
+    logo: "/images/experience/nsLogo.jpeg",
+    tech: ["Laravel", "NestJS", "Nuxt.js", "TypeScript", "MySQL", "Vercel", "GitHub Actions"],
+  },
+  {
+    period: "Dec 2023 – Dec 2025",
+    role: "Software Developer Level-I",
     company: "BD Funnel Builder",
     link: "https://bdfunnelbuilder.com/",
-    description: "Building scalable web applications using Laravel, Nuxt.js, and NestJS. Responsible for backend RESTful APIs, frontend components, real-time features, and cloud deployments on Vercel and Forge.",
+    description: "Delivered client features end to end on a Laravel and MySQL backend — REST APIs, authentication and role management, queued jobs and Filament admin panels — together with the Vue.js and TailwindCSS interfaces that consumed them. Debugged production issues, tuned slow queries and kept releases moving through a Git-based review workflow.",
     logo: "/images/experience/bdfb.png",
-    tech: ["Laravel", "Nuxt.js", "NestJS", "MySQL", "TailwindCSS", "Vercel"],
+    tech: ["Laravel", "PHP", "Filament", "Vue.js", "MySQL", "TailwindCSS", "Forge"],
   },
   {
     period: "Sep 2022 – Sep 2023",
-    role: "Web Developer",
+    role: "Junior Software Developer",
     company: "Nextive Solution",
     link: "https://www.nextivesolution.com/",
-    description: "Developed interactive UIs and dashboards using Vue.js and TailwindCSS. Ensured cross-browser compatibility, responsive design, and collaborated with backend teams to integrate REST APIs.",
+    description: "Built interactive UIs and admin dashboards with Vue.js, TailwindCSS and Bootstrap, turning designs into responsive, cross-browser components. Integrated REST APIs alongside the backend team, verified endpoints in Postman, and learned the day-to-day discipline of branching, code review and clean, reusable component structure.",
     logo: "/images/experience/nsLogo.jpeg",
-    tech: ["Vue.js", "TailwindCSS", "JavaScript", "REST APIs", "Git"],
+    tech: ["Vue.js", "JavaScript", "TailwindCSS", "Bootstrap", "REST APIs", "Postman", "Git"],
   },
 ];
 

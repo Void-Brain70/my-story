@@ -3,67 +3,85 @@
     <h1
         class="text-3xl sm:text-4xl font-extrabold text-center
              bg-gradient-to-r from-cyan-500 to-teal-500
-             bg-clip-text text-transparent mb-12 md:mb-16"
+             bg-clip-text text-transparent mb-4"
     >
       &lt; Education /&gt;
     </h1>
+    <p class="text-center text-gray-500 font-mono text-xs sm:text-sm mb-10 md:mb-12">
+      // academic milestones
+    </p>
 
-    <div class="relative">
-      <!-- Vertical timeline line -->
-      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-cyan-500 via-teal-500 to-transparent"></div>
+    <!-- Horizontal milestone rail (desktop only) -->
+    <div class="hidden md:block relative mb-10">
+      <div class="absolute top-1/2 left-[16.6%] right-[16.6%] h-px -translate-y-1/2 bg-gradient-to-r from-cyan-500/50 via-teal-500/50 to-cyan-500/20"></div>
+      <div class="relative grid grid-cols-3">
+        <div v-for="(edu, i) in education" :key="'node-' + i" class="flex justify-center">
+          <span class="relative flex h-3.5 w-3.5">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-cyan-500/60 animate-ping-slow"></span>
+            <span class="relative inline-flex h-3.5 w-3.5 rounded-full bg-cyan-500 ring-4 ring-cyan-500/20"></span>
+          </span>
+        </div>
+      </div>
+    </div>
 
-      <div class="space-y-8 md:space-y-16">
-        <div
-            v-for="(edu, i) in education"
-            :key="i"
-            class="relative transition-all duration-800 ease-out"
-            v-intersect="() => visible[i] = true"
-            :class="visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
-            :style="{ transitionDelay: `${i * 150}ms` }"
-        >
-          <!-- Timeline Node -->
-          <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-cyan-500 rounded-full ring-4 ring-cyan-500/20 z-10"></div>
+    <!-- Milestone Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+      <div
+          v-for="(edu, i) in education"
+          :key="i"
+          class="edu-card group relative"
+          v-intersect="() => (visible[i] = true)"
+          :class="visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
+          :style="{ transitionDelay: `${i * 140}ms` }"
+      >
+        <div class="absolute -inset-px bg-gradient-to-b from-cyan-500/40 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-          <div :class="[
-            'grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center',
-            i % 2 === 0 ? 'md:grid-flow-col-dense' : ''
-          ]">
-            <div v-if="i % 2 === 0" class="hidden md:block"></div>
+        <div class="relative h-full flex flex-col bg-gradient-to-b from-white/[0.07] to-white/[0.02] border border-white/10 rounded-3xl p-5 sm:p-6 backdrop-blur-xl overflow-hidden
+                    group-hover:border-cyan-500/40 group-hover:-translate-y-1.5 transition-all duration-500">
+          <!-- Watermark passing year -->
+          <span class="pointer-events-none absolute -top-2 right-3 font-mono text-5xl sm:text-6xl font-black text-white/[0.045] select-none tracking-tighter">
+            {{ edu.passing }}
+          </span>
 
-            <!-- Education Card -->
-            <div class="group relative">
-              <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-teal-500/10 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-              <div class="relative bg-gradient-to-br from-[#1a1a1a] to-[#111111] border border-white/10 rounded-2xl p-5 sm:p-6 md:p-8 backdrop-blur-xl group-hover:border-cyan-500/50 transition-all duration-500">
-                <!-- Period Badge -->
-                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 bg-cyan-500/20 border border-cyan-500/30 rounded-full mb-3 sm:mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 sm:h-4 sm:w-4 text-cyan-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  <span class="text-cyan-400 font-semibold text-xs sm:text-sm">{{ edu.period }}</span>
-                </div>
-
-                <h3 class="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors duration-300">
-                  {{ edu.degree }}
-                </h3>
-
-                <div class="flex items-start gap-2 mb-3 sm:mb-4">
-                  <Icon name="mdi:school-outline" class="h-4 w-4 sm:h-5 sm:w-5 text-cyan-500 mt-0.5 flex-shrink-0" />
-                  <a :href="edu.link" target="_blank" rel="noopener noreferrer" class="text-gray-300 font-medium text-sm sm:text-base hover:text-cyan-400 transition-colors">
-                    {{ edu.institute }}
-                  </a>
-                </div>
-
-                <p class="text-gray-400 text-sm md:text-base leading-relaxed">
-                  {{ edu.description }}
-                </p>
-
-                <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-cyan-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              </div>
-            </div>
-
-            <div v-if="i % 2 !== 0" class="hidden md:block"></div>
+          <!-- Emblem -->
+          <div class="relative w-12 h-12 sm:w-14 sm:h-14 mb-4 rounded-2xl bg-gradient-to-br from-cyan-500/25 to-teal-500/10 border border-cyan-500/25 flex items-center justify-center
+                      group-hover:from-cyan-500/40 group-hover:border-cyan-500/50 transition-all duration-500">
+            <Icon name="mdi:school" class="h-6 w-6 sm:h-7 sm:w-7 text-cyan-400" />
           </div>
+
+          <h3 class="relative text-base sm:text-lg font-bold text-white leading-snug mb-1.5 group-hover:text-cyan-400 transition-colors duration-300">
+            {{ edu.degree }}
+          </h3>
+
+          <p v-if="edu.dept" class="relative flex items-start gap-1.5 text-cyan-400/90 text-xs sm:text-sm font-medium leading-snug mb-3">
+            <Icon name="mdi:chevron-right" class="h-4 w-4 flex-shrink-0 mt-px text-cyan-500/70" />
+            <span>{{ edu.dept }}</span>
+          </p>
+
+          <a
+              :href="edu.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative inline-flex items-start gap-1.5 text-gray-400 text-xs sm:text-sm mb-4 hover:text-cyan-400 transition-colors w-fit"
+          >
+            <Icon name="mdi:map-marker-outline" class="h-4 w-4 flex-shrink-0 mt-px" />
+            <span class="underline decoration-white/15 underline-offset-4 group-hover:decoration-cyan-500/50 transition-colors">{{ edu.institute }}</span>
+          </a>
+
+          <p class="relative text-gray-400 text-xs sm:text-sm leading-relaxed flex-1">
+            {{ edu.description }}
+          </p>
+
+          <!-- Footer meta -->
+          <div class="relative mt-5 pt-4 border-t border-dashed border-white/10 flex items-center justify-between gap-3">
+            <span class="font-mono text-[11px] sm:text-xs text-gray-500 tracking-wide">{{ edu.period }}</span>
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+              <Icon name="mdi:check-decagram" class="h-3 w-3 text-cyan-400 flex-shrink-0" />
+              <span class="font-mono text-[10px] sm:text-[11px] text-cyan-400 font-semibold">Passed {{ edu.passing }}</span>
+            </span>
+          </div>
+
+          <div class="pointer-events-none absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
         </div>
       </div>
     </div>
@@ -77,24 +95,30 @@ const visible = ref<boolean[]>([]);
 
 const education = [
   {
+    passing: "2022",
     period: "2018 – 2022",
-    degree: "BSc in Computer Science & Engineering",
+    degree: "Bachelor of Science (BSc)",
+    dept: "Computer Science and Engineering",
     institute: "University of Asia Pacific",
     link: "https://www.uap-bd.edu/",
     description:
         "Specialized in software engineering, web & mobile development, cloud computing, and team-based projects. Completed capstone projects in full-stack web applications and cloud deployment.",
   },
   {
+    passing: "2016",
     period: "2014 – 2016",
-    degree: "Higher Secondary Certificate (Science)",
+    degree: "Higher Secondary Certificate (HSC)",
+    dept: "Science",
     institute: "Govt Science College, Dhaka",
     link: "https://www.gsctd.edu.bd/",
     description:
         "Focused on mathematics, physics, and computer science fundamentals. Participated in programming competitions and science fairs, strengthening analytical and problem-solving skills.",
   },
   {
+    passing: "2014",
     period: "2012 – 2014",
-    degree: "Secondary School Certificate (Science)",
+    degree: "Secondary School Certificate (SSC)",
+    dept: "Science",
     institute: "Dashani Mohanpur High School, Chandpur",
     link: "https://dmhighschool.edu.bd/",
     description:
@@ -121,7 +145,18 @@ const vIntersect = {
 </script>
 
 <style scoped>
-.relative {
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+.edu-card {
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+@keyframes ping-slow {
+  75%, 100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2.5s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 </style>

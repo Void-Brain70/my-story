@@ -67,12 +67,11 @@
             <div class="relative bg-gradient-to-br from-[#1a1a1a] to-[#111111] p-1.5 sm:p-2 rounded-2xl sm:rounded-3xl border border-white/10 group-hover:border-cyan-500/50 transition-all duration-500">
               <div class="relative overflow-hidden rounded-xl sm:rounded-2xl">
                 <img
-                    src="/images/me4.png"
+                    src="/images/image3.jpeg"
                     alt="Anik Chandra - Full-Stack Developer specializing in Laravel, Vue.js, and NestJS"
                     loading="lazy"
                     class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-cyan-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
             </div>
             <div class="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-14 sm:w-20 h-14 sm:h-20 bg-cyan-500/20 rounded-full blur-lg sm:blur-xl"></div>
