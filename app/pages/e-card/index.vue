@@ -12,7 +12,6 @@
         Create beautiful animated digital cards for every occasion — share with one link.
       </p>
     </div>
-
     <!-- Card type grid -->
     <div class="max-w-6xl mx-auto px-4 pb-20">
       <h2 class="text-center text-xl text-gray-400 mb-10 uppercase tracking-widest">Choose your card type</h2>
@@ -31,7 +30,6 @@
         </NuxtLink>
       </div>
     </div>
-
     <!-- Features strip -->
     <div class="border-t border-white/5 py-12 px-4">
       <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
