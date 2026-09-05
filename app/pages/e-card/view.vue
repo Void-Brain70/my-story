@@ -2,7 +2,6 @@
   <div class="view-root" :style="{ background: theme?.bg ?? '#080810' }">
     <!-- Ambient particles -->
     <EcardSharedParticles v-if="isOpen && cardConfig" :type="cardConfig.particleType" />
-
     <!-- Music player -->
     <EcardSharedMusicPlayer
       v-if="cardData"
@@ -10,12 +9,10 @@
       :accent="theme?.accent"
       :autoPlay="false"
     />
-
     <!-- === OPENER STAGE === -->
     <Transition name="opener-out">
       <div v-if="!isOpen && cardData" class="opener-stage">
         <!-- Dynamic opener based on card type -->
-
         <!-- ENVELOPE opener (wedding, anniversary) -->
         <div v-if="openerType === 'envelope'" class="envelope-wrapper" @click="openCard">
           <div class="envelope" :style="{ '--accent': theme?.accent ?? '#d4af37' }">
@@ -26,7 +23,6 @@
           </div>
           <p class="tap-hint" :style="{ color: theme?.text }">Tap to open your invitation</p>
         </div>
-
         <!-- BALLOON opener (birthday) -->
         <div v-else-if="openerType === 'balloon'" class="balloon-wrapper" @click="openCard">
           <div class="balloons">
