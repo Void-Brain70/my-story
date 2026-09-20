@@ -41,7 +41,6 @@ import { allSkillNames } from "~/data/skills";
 
 const { public: { siteUrl } } = useRuntimeConfig()
 const origin = String(siteUrl).replace(/\/$/, '')
-
 // Title stays under ~60 chars and description under ~160 so neither is
 // truncated in the SERP.
 const pageTitle = 'Anik Chandra | Full-Stack Developer (Laravel, Nuxt, NestJS)'
