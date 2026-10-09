@@ -12,6 +12,8 @@
         Create beautiful animated digital cards for every occasion — share with one link.
       </p>
     </div>
+
+    <!-- Test Card  -->
     
     <!-- Card type grid -->
     <div class="max-w-6xl mx-auto px-4 pb-20">
