@@ -9,17 +9,14 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
-
 html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
 body {
   overflow-x: hidden;
 }
-
 /* Prevent horizontal scroll on mobile */
 @media (max-width: 640px) {
   html, body {
